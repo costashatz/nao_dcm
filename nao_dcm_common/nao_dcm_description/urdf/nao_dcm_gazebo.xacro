@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- GAZEBO ROS CONTROL PLUGIN -->
+    <gazebo>
+        <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+            <robotNamespace>/nao_dcm</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+    </gazebo>
+    <!-- END OF GAZEBO ROS CONTROL PLUGIN -->
+    <!-- GAZEBO MATERIALS -->
+    <gazebo reference="torso">
+        <material>Gazebo/Blue</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="neck">
+        <material>Gazebo/Red</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="gaze">
+        <material>Gazebo/Green</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LShoulderDummy">
+        <material>Gazebo/Green</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RShoulderDummy">
+        <material>Gazebo/Green</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LShoulder">
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LElbow">
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LElbowDummy">
+        <material>Gazebo/Red</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="l_wrist">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="l_gripper">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RShoulder">
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RElbow">
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RElbowDummy">
+        <material>Gazebo/Red</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="r_wrist">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="r_gripper">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LHipYaw">
+        <material>Gazebo/Green</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LHip">
+        <material>Gazebo/Green</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LHipDummy">
+        <material>Gazebo/Blue</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LKnee">
+        <material>Gazebo/Green</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="l_ankle">
+        <material>Gazebo/Green</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="l_sole">
+        <material>Gazebo/Blue</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+        <fdir1>1 0 0</fdir1>
+        <maxVel>1.0</maxVel>
+        <minDepth>0.003</minDepth>
+    </gazebo>
+    <gazebo reference="RHipYaw">
+        <material>Gazebo/Green</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RHip">
+        <material>Gazebo/Green</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RHipDummy">
+        <material>Gazebo/Blue</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RKnee">
+        <material>Gazebo/Green</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="r_ankle">
+        <material>Gazebo/Green</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="r_sole">
+        <material>Gazebo/Blue</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+        <fdir1>1 0 0</fdir1>
+        <maxVel>1.0</maxVel>
+        <minDepth>0.003</minDepth>
+    </gazebo>
+    <!-- END OF GAZEBO MATERIALS -->
+    <!-- Used for fixing robot to Gazebo 'base_link' -->
+    <!-- <link name="world"/><joint name="fixed" type="fixed"><parent link="world"/><child link="Torso"/><origin xyz="0 0 0.7" rpy="0 0 0" /></joint>-->
+    <!-- cameras -->
+    <gazebo reference="CameraTop">
+        <sensor type="camera" name="CameraTop">
+            <update_rate>30.0</update_rate>
+            <camera name="head">
+                <horizontal_fov>1.06290551</horizontal_fov>
+                <image>
+                    <width>640</width>
+                    <height>480</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.3</near>
+                    <far>500</far>
+                </clip>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.007</stddev>
+                </noise>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <alwaysOn>true</alwaysOn>
+                <updateRate>0.0</updateRate>
+                <cameraName>nao_robot/CameraTop</cameraName>
+                <imageTopicName>image_raw</imageTopicName>
+                <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+                <frameName>CameraTop</frameName>
+                <hackBaseline>0.07</hackBaseline>
+                <distortionK1>0.0</distortionK1>
+                <distortionK2>0.0</distortionK2>
+                <distortionK3>0.0</distortionK3>
+                <distortionT1>0.0</distortionT1>
+                <distortionT2>0.0</distortionT2>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <gazebo reference="CameraBottom">
+        <sensor type="camera" name="CameraBottom">
+            <update_rate>30.0</update_rate>
+            <camera name="head">
+                <horizontal_fov>0.834267382</horizontal_fov>
+                <image>
+                    <width>640</width>
+                    <height>480</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.3</near>
+                    <far>500</far>
+                </clip>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.007</stddev>
+                </noise>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <alwaysOn>true</alwaysOn>
+                <updateRate>0.0</updateRate>
+                <cameraName>nao_robot/CameraBottom</cameraName>
+                <imageTopicName>image_raw</imageTopicName>
+                <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+                <frameName>CameraBottom</frameName>
+                <hackBaseline>0.07</hackBaseline>
+                <distortionK1>0.0</distortionK1>
+                <distortionK2>0.0</distortionK2>
+                <distortionK3>0.0</distortionK3>
+                <distortionT1>0.0</distortionT1>
+                <distortionT2>0.0</distortionT2>
+            </plugin>
+        </sensor>
+    </gazebo>
+</robot>

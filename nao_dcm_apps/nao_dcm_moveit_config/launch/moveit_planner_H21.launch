@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+	<!-- Start move_group -->
+ 	<include file="$(find nao_dcm_moveit_config)/launch/move_group_H21.launch">
+ 		<arg name="publish_monitored_planning_scene" value="true" />
+	</include>
+
+	<!-- Start Rviz -->
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find nao_dcm_moveit_config)/config/nao_dcm_moveit_config.rviz" />
+	
+</launch>

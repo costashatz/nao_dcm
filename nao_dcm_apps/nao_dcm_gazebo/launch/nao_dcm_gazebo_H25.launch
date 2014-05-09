@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Load the URDF Model -->
+  <include file="$(find nao_dcm_description)/launch/nao_dcm_H25_urdf.launch" />
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find nao_dcm_gazebo)/worlds/nao_test.world"/>
+    <arg name="paused" value="true"/>
+    <!-- more default parameters can be changed here -->
+  </include>
+  <rosparam file="$(find nao_dcm_gazebo)/config/gazebo_ros_control_params.yaml" command="load"/>
+
+  <!-- Call Nao Robot Trajectory Controller -->
+  <include file="$(find nao_dcm_control)/launch/nao_dcm_trajectory_control_H25.launch"/>
+
+  <!-- Spawn a robot into Gazebo -->
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -x 0 -y 0 -z 0.339 -model nao_robot_v4_H25" />
+</launch>

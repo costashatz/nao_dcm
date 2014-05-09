@@ -1,0 +1,17 @@
+float32 LeftFrontLeft
+float32 LeftFrontRight
+float32 LeftRearLeft
+float32 LeftRearRight
+float32 LeftTotalWeight
+
+float32 LeftCOPx
+float32 LeftCOPy
+
+float32 RightFrontLeft
+float32 RightFrontRight
+float32 RightRearLeft
+float32 RightRearRight
+float32 RightTotalWeight
+
+float32 RightCOPx
+float32 RightCOPy

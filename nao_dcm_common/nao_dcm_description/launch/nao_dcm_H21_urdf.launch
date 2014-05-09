@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Load Nao Robot parameter file -->
+	<param name="robot_description" command="$(find xacro)/xacro.py $(find nao_dcm_description)/urdf/nao_dcm_H21.xacro" />
+</launch>

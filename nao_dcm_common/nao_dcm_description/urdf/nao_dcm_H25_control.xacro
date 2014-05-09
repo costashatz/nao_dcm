@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<!-- HEAD -->
+	<transmission name="HeadYaw_Transmission">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="HeadYaw"/>
+		<actuator name="HeadYaw_Motor">
+			<!-- Dummy Values -->
+			<hardwareInterface>PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>150.27</mechanicalReduction>
+		</actuator>
+	</transmission>
+	<transmission name="HeadPitch_Transmission">
+		<type>transmission_interface/SimpleTransmission</type>
+		<joint name="HeadPitch"/>
+		<actuator name="HeadPitch_Motor">
+			<!-- Dummy Values -->
+			<hardwareInterface>PositionJointInterface</hardwareInterface>
+			<mechanicalReduction>173.22</mechanicalReduction>
+		</actuator>
+	</transmission>
+	<!-- ARMS -->
+	<!-- XACRO -->
+	<xacro:macro name="arm_joints_transmissions" params="side">
+		<transmission name="${side}ShoulderPitch_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}ShoulderPitch"/>
+			<actuator name="${side}ShoulderPitch_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>150.27</mechanicalReduction>
+			</actuator>
+		</transmission>
+		<transmission name="${side}ElbowYaw_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}ElbowYaw"/>
+			<actuator name="${side}ElbowYaw_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>150.27</mechanicalReduction>
+			</actuator>
+		</transmission>
+		<transmission name="${side}WristYaw_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}WristYaw"/>
+			<actuator name="${side}WristYaw_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>50.61</mechanicalReduction>
+			</actuator>
+		</transmission>
+		<transmission name="${side}Hand_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}Hand"/>
+			<actuator name="${side}Hand_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>36.24</mechanicalReduction>
+			</actuator>
+		</transmission>
+		<transmission name="${side}ShoulderRoll_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}ShoulderRoll"/>
+			<actuator name="${side}ShoulderRoll_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>173.22</mechanicalReduction>
+			</actuator>
+		</transmission>
+		<transmission name="${side}ElbowRoll_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}ElbowRoll"/>
+			<actuator name="${side}ElbowRoll_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>173.22</mechanicalReduction>
+			</actuator>
+		</transmission>
+	</xacro:macro>
+	<xacro:arm_joints_transmissions side="L"/>
+	<xacro:arm_joints_transmissions side="R"/>
+	<!-- LEGS -->
+	<!-- XACRO -->
+	<xacro:macro name="leg_joints_transmissions" params="side">
+		<transmission name="${side}HipYawPitch_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}HipYawPitch"/>
+			<actuator name="${side}HipYawPitch_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>201.3</mechanicalReduction>
+			</actuator>
+		</transmission>
+		<transmission name="${side}HipRoll_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}HipRoll"/>
+			<actuator name="${side}HipRoll_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>201.3</mechanicalReduction>
+			</actuator>
+		</transmission>
+		<transmission name="${side}HipPitch_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}HipPitch"/>
+			<actuator name="${side}HipPitch_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>130.85</mechanicalReduction>
+			</actuator>
+		</transmission>
+		<transmission name="${side}KneePitch_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}KneePitch"/>
+			<actuator name="${side}KneePitch_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>130.85</mechanicalReduction>
+			</actuator>
+		</transmission>
+		<transmission name="${side}AnklePitch_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}AnklePitch"/>
+			<actuator name="${side}AnklePitch_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>130.85</mechanicalReduction>
+			</actuator>
+		</transmission>
+		<transmission name="${side}AnkleRoll_Transmission">
+			<type>transmission_interface/SimpleTransmission</type>
+			<joint name="${side}AnkleRoll"/>
+			<actuator name="${side}AnkleRoll_Motor">
+				<!-- Dummy Values -->
+				<hardwareInterface>PositionJointInterface</hardwareInterface>
+				<mechanicalReduction>201.3</mechanicalReduction>
+			</actuator>
+		</transmission>
+	</xacro:macro>
+	<xacro:leg_joints_transmissions side="L"/>
+	<xacro:leg_joints_transmissions side="R"/>
+</robot>
