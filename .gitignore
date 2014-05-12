@@ -1,2 +1,3 @@
 nao_dcm_driver-build
 CMakeLists.txt.user
+*.pyc

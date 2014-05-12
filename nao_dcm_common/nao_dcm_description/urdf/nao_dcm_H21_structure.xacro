@@ -16,6 +16,13 @@
             <inertia ixx="0.00506234058" ixy="0.00001431158" ixz="0.00015519082" iyy="0.0048013591" iyz="-0.00002707934" izz="0.00161030006"/>
         </inertial>
     </link>
+    <!-- IMU -->
+    <joint name="torso-imu" type="fixed">
+        <parent link="torso"/>
+        <child link="imu"/>
+        <origin xyz="-0.008 0.00606 0.027" rpy="0 0 0"/>
+    </joint>
+    <link name="imu"/>
     <!-- SONARS -->
     <!-- Nao has different sonar transmitter and receiver. The correct way is to take the intersection of the 2 cones -->
     <!-- <joint name="RightSonarTransmitter" type="fixed">

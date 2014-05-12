@@ -42,6 +42,29 @@
     <group name="Pelvis">
         <joint name="LHipYawPitch" />
     </group>
+    <group name="Body">
+        <joint name="HeadYaw" />
+        <joint name="HeadPitch" />
+        <joint name="LShoulderPitch" />
+        <joint name="LShoulderRoll" />
+        <joint name="LElbowYaw" />
+        <joint name="LElbowRoll" />
+        <joint name="RShoulderPitch" />
+        <joint name="RShoulderRoll" />
+        <joint name="RElbowYaw" />
+        <joint name="RElbowRoll" />
+        <joint name="LHipYawPitch" />
+        <joint name="LHipRoll" />
+        <joint name="LHipPitch" />
+        <joint name="LKneePitch" />
+        <joint name="LAnklePitch" />
+        <joint name="LAnkleRoll" />
+        <joint name="RHipRoll" />
+        <joint name="RHipPitch" />
+        <joint name="RKneePitch" />
+        <joint name="RAnklePitch" />
+        <joint name="RAnkleRoll" />
+    </group>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="virtual_joint" type="floating" parent_frame="odom_combined" child_link="base_link" />
     <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->

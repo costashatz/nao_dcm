@@ -16,6 +16,13 @@
             <inertia ixx="0.00506234058" ixy="0.00001431158" ixz="0.00015519082" iyy="0.0048013591" iyz="-0.00002707934" izz="0.00161030006"/>
         </inertial>
     </link>
+    <!-- IMU -->
+    <joint name="torso-imu" type="fixed">
+        <parent link="torso"/>
+        <child link="imu"/>
+        <origin xyz="-0.008 0.00606 0.027" rpy="0 0 0"/>
+    </joint>
+    <link name="imu"/>
     <!-- SONARS -->
     <!-- Nao has different sonar transmitter and receiver. The correct way is to take the intersection of the 2 cones -->
     <!-- <joint name="RightSonarTransmitter" type="fixed">
@@ -177,7 +184,13 @@
         <origin rpy="0 0 0" xyz="0.05775 0 0"/>
         <limit effort="0.49" lower="0.0" upper="1.0" velocity="3.0"/>
     </joint>
-    <link name="l_gripper"/>
+    <link name="l_gripper">
+        <inertial> <!-- dummy values for gazebo -->
+            <mass value="1e-5" />
+            <origin xyz="0 0 0"/>
+            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+        </inertial>
+    </link>
     <joint name="RWristYaw" type="revolute">
         <parent link="RElbowDummy"/>
         <child link="r_wrist"/>
@@ -200,7 +213,13 @@
         <origin rpy="0 0 0" xyz="0.05775 0 0"/>
         <limit effort="0.49" lower="0.0" upper="1.0" velocity="3.0"/>
     </joint>
-    <link name="r_gripper"/>
+    <link name="r_gripper">
+        <inertial> <!-- dummy values for gazebo -->
+            <mass value="1e-5" />
+            <origin xyz="0 0 0"/>
+            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+        </inertial>
+    </link>
     <!-- JOINTS THAT ARE NOT IDENTICAL TO 2 ENDS -->
     <joint name="LShoulderRoll" type="revolute">
         <parent link="LShoulder"/>

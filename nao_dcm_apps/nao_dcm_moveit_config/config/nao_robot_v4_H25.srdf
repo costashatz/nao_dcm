@@ -66,6 +66,33 @@
         <joint name="LWristYaw" />
         <joint name="LHand" />
     </group>
+    <group name="Body">
+        <joint name="HeadYaw" />
+        <joint name="HeadPitch" />
+        <joint name="LShoulderPitch" />
+        <joint name="LShoulderRoll" />
+        <joint name="LElbowYaw" />
+        <joint name="LElbowRoll" />
+        <joint name="LHand" />
+        <joint name="LWristYaw" />
+        <joint name="RShoulderPitch" />
+        <joint name="RShoulderRoll" />
+        <joint name="RElbowYaw" />
+        <joint name="RElbowRoll" />
+        <joint name="RWristYaw" />
+        <joint name="RHand" />
+        <joint name="LHipYawPitch" />
+        <joint name="LHipRoll" />
+        <joint name="LHipPitch" />
+        <joint name="LKneePitch" />
+        <joint name="LAnklePitch" />
+        <joint name="LAnkleRoll" />
+        <joint name="RHipRoll" />
+        <joint name="RHipPitch" />
+        <joint name="RKneePitch" />
+        <joint name="RAnklePitch" />
+        <joint name="RAnkleRoll" />
+    </group>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="right_eef" parent_link="RElbowDummy" group="RightHand" parent_group="RightArm" />
     <end_effector name="left_eef" parent_link="LElbowDummy" group="LeftHand" parent_group="LeftArm" />

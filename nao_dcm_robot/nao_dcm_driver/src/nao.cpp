@@ -652,6 +652,9 @@ void Nao::lowCommunicationLoop()
     {
         ros::Time time = ros::Time::now();
 
+        if(!is_connected_)
+            break;
+
         publishBaseFootprint(time);
 
         if(sonar_enabled_)
@@ -689,9 +692,21 @@ void Nao::highCommunicationLoop()
     {
         ros::Time time = ros::Time::now();
 
+        if(!is_connected_)
+            break;
+
         if(imu_published_)
             publishIMU(time);
 
+        try
+        {
+            dcm_proxy_.ping();
+        }
+        catch(const AL::ALError& e)
+        {
+            ROS_ERROR("Could not ping DCM proxy.\n\tTrace: %s",e.what());
+            is_connected_ = false;
+        }
         rate.sleep();
     }
 }
@@ -702,6 +717,9 @@ void Nao::controllerLoop()
     while(ros::ok())
     {
         ros::Time time = ros::Time::now();
+
+        if(!is_connected_)
+            break;
 
         readJoints();
 
@@ -839,14 +857,22 @@ void Nao::readJoints()
 
 void Nao::writeJoints()
 {
-    int T = dcm_proxy_.getTime(0);
-    for(int i=0;i<number_of_joints_;i++)
+    try
     {
-        commands_[3][i][0][0] = float(joint_commands_[i]);
-        commands_[3][i][0][1] = T+(int)(800.0f/controller_freq_);
+        int T = dcm_proxy_.getTime(0);
+        for(int i=0;i<number_of_joints_;i++)
+        {
+            commands_[3][i][0][0] = float(joint_commands_[i]);
+            commands_[3][i][0][1] = T+(int)(800.0f/controller_freq_);
+        }
+        
+        dcm_proxy_.setAlias(commands_);
     }
-    
-    dcm_proxy_.setAlias(commands_);
+    catch(const AL::ALError& e)
+    {
+        ROS_ERROR("Could not send joint commands to Nao.\n\tTrace: %s",e.what());
+        return;
+    }
 }
 
 bool Nao::switchSonar(nao_dcm_msgs::BoolService::Request &req, nao_dcm_msgs::BoolService::Response &res)

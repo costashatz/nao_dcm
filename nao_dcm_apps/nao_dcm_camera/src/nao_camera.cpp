@@ -228,6 +228,16 @@ void NaoCamera::loop(const ros::Time &time, const ros::Duration &period)
     {
         ROS_ERROR("ALError!\n\tTrace: %s",e.what());
     }
+
+    try
+    {
+        video_proxy_.ping();
+    }
+    catch(const AL::ALError& e)
+    {
+        ROS_ERROR("Could not ping Video proxy.\n\tTrace: %s",e.what());
+        is_connected_ = false;
+    }
 }
 
 bool NaoCamera::connected()
@@ -327,6 +337,8 @@ bool NaoCamera::switchCameraBottomState(nao_dcm_msgs::BoolService::Request &req,
 
 void NaoCamera::dynamicReconfigureCb(nao_dcm_camera::NaoDCMCameraConfig &config, uint32_t level)
 {
+    if(!is_connected_)
+        return;
     reconfiguring_ = true;
     // Change configurations if needed
     if(camera_top_enabled_)

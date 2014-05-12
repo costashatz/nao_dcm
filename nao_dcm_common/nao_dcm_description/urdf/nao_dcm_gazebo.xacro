@@ -1,10 +1,18 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-    <!-- GAZEBO ROS CONTROL PLUGIN -->
+    <!-- GAZEBO ROS CONTROL AND IMU PLUGIN -->
     <gazebo>
         <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
             <robotNamespace>/nao_dcm</robotNamespace>
             <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+        <plugin name="gazebo_ros_imu_controller" filename="libgazebo_ros_imu.so">
+            <robotNamespace>/nao_dcm</robotNamespace>
+            <topicName>imu_data</topicName>
+            <bodyName>imu</bodyName>
+            <gaussianNoise>2.89e-08</gaussianNoise>
+            <xyzOffsets>0 0 0</xyzOffsets>
+            <rpyOffsets>0 0 0</rpyOffsets>
         </plugin>
     </gazebo>
     <!-- END OF GAZEBO ROS CONTROL PLUGIN -->
@@ -227,7 +235,7 @@
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
                 <alwaysOn>true</alwaysOn>
                 <updateRate>0.0</updateRate>
-                <cameraName>nao_robot/CameraTop</cameraName>
+                <cameraName>nao_dcm/CameraTop</cameraName>
                 <imageTopicName>image_raw</imageTopicName>
                 <cameraInfoTopicName>camera_info</cameraInfoTopicName>
                 <frameName>CameraTop</frameName>
@@ -264,7 +272,7 @@
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
                 <alwaysOn>true</alwaysOn>
                 <updateRate>0.0</updateRate>
-                <cameraName>nao_robot/CameraBottom</cameraName>
+                <cameraName>nao_dcm/CameraBottom</cameraName>
                 <imageTopicName>image_raw</imageTopicName>
                 <cameraInfoTopicName>camera_info</cameraInfoTopicName>
                 <frameName>CameraBottom</frameName>
@@ -277,4 +285,5 @@
             </plugin>
         </sensor>
     </gazebo>
+
 </robot>
