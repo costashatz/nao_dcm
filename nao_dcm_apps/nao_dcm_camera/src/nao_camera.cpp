@@ -122,13 +122,14 @@ void NaoCamera::disconnect()
 
 void NaoCamera::loadParams()
 {
-    node_handle_.param("Nao_UseCamera", camera_enabled_, true);
-    node_handle_.param("Nao_TopCameraEnabled", camera_top_enabled_, camera_enabled_);
-    node_handle_.param("Nao_BottomCameraEnabled", camera_bottom_enabled_, camera_enabled_);
+    ros::NodeHandle n_p("~");
+    n_p.param("UseCamera", camera_enabled_, true);
+    n_p.param("TopCameraEnabled", camera_top_enabled_, camera_enabled_);
+    n_p.param("BottomCameraEnabled", camera_bottom_enabled_, camera_enabled_);
 
-    node_handle_.param("Nao_TopicQueue", topic_queue_, 50);
+    n_p.param("TopicQueue", topic_queue_, 50);
 
-    node_handle_.param("Nao_Prefix", prefix_, string("nao_dcm"));
+    n_p.param("Prefix", prefix_, string("nao_dcm"));
     prefix_ = prefix_+"/";
 }
 
@@ -379,6 +380,7 @@ int main( int argc, char** argv )
     string pip = "127.0.0.1";
     ros::init(argc, argv, "nao_dcm_camera");
     ros::NodeHandle n;
+    ros::NodeHandle n_p("~");
     ros::NodeHandle top("CameraTopNode"), bottom("CameraBottomNode");
     if(!ros::master::check())
     {
@@ -394,11 +396,11 @@ int main( int argc, char** argv )
     double communication_rate;
 
     // Load Params from Parameter Server
-    n.param("Nao_RobotIP", pip, string("127.0.0.1"));
-    n.param("Nao_RobotPort", pport,9559);
-    n.param("Nao_CameraBrokerPort", broker_port, 54001);
-    n.param("Nao_CameraBrokerIP", broker_ip, string("0.0.0.0"));
-    n.param("Nao_CameraFrequency", communication_rate, 30.0);
+    n_p.param("RobotIP", pip, string("127.0.0.1"));
+    n_p.param("RobotPort", pport,9559);
+    n_p.param("CameraBrokerPort", broker_port, 54001);
+    n_p.param("CameraBrokerIP", broker_ip, string("0.0.0.0"));
+    n_p.param("CameraFrequency", communication_rate, 30.0);
 
     // Create your own broker
     boost::shared_ptr<AL::ALBroker> broker;

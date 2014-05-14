@@ -27,6 +27,7 @@ int main( int argc, char** argv )
     string pip = "127.0.0.1";
     ros::init(argc, argv, "nao_dcm_driver");
     ros::NodeHandle n;
+    ros::NodeHandle n_p("~");
     if(!ros::master::check())
     {
         cerr<<"Could not contact master!\nQuitting... "<<endl;
@@ -40,16 +41,20 @@ int main( int argc, char** argv )
     string broker_ip = "0.0.0.0";
 
     // Load Params from Parameter Server
-    n.param("Nao_RobotIP", pip, string("127.0.0.1"));
-    n.param("Nao_RobotPort", pport,9559);
-    n.param("Nao_DriverBrokerPort", broker_port, 54000);
-    n.param("Nao_DriverBrokerIP", broker_ip, string("0.0.0.0"));
+    n_p.param("RobotIP", pip, string("127.0.0.1"));
+    n_p.param("RobotPort", pport,9559);
+    n_p.param("DriverBrokerPort", broker_port, 54000);
+    n_p.param("DriverBrokerIP", broker_ip, string("0.0.0.0"));
 
     // Create your own broker
     boost::shared_ptr<AL::ALBroker> broker;
     try
     {
         broker = AL::ALBroker::createBroker(broker_name,broker_ip,broker_port,pip,pport,0);
+
+        // Workaround because stiffness does not work well via DCM
+        AL::ALProxy tempMotion("ALMotion", pip, pport);
+        tempMotion.callVoid("setStiffnesses","Body",1.0f);
     }
     catch(...)
     {

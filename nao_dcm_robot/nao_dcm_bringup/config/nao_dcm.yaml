@@ -1,36 +1,36 @@
 # DO NOT CHANGE IT
-Nao_Version: V4
+Version: V4
 
 # Choose what components are enabled on startup
-Nao_SonarEnabled: true
-Nao_TactilesEnabled: true
-Nao_BumpersEnabled: true
-Nao_FootContactsEnabled: true
+SonarEnabled: true
+TactilesEnabled: true
+BumpersEnabled: true
+FootContactsEnabled: true
 
 # Camera related parameters
-Nao_UseCamera: true
-Nao_TopCameraEnabled: true
-Nao_BottomCameraEnabled: true
+UseCamera: true
+TopCameraEnabled: true
+BottomCameraEnabled: true
 
 # Application related parameters
-Nao_PublishIMU: true
+PublishIMU: true
 
 # ROS related paramaters
-Nao_TopicQueue: 10
+TopicQueue: 10
 
 # Robot-Connection related parameters
-Nao_RobotPort: 9559
-Nao_RobotIP: nao.local
-Nao_DriverBrokerPort: 54000
-Nao_DriverBrokerIP: 0.0.0.0
-Nao_CameraBrokerPort: 54001
-Nao_CameraBrokerIP: 0.0.0.0
+RobotPort: 9559
+RobotIP: nao.local
+DriverBrokerPort: 54000
+DriverBrokerIP: 0.0.0.0
+CameraBrokerPort: 54001
+CameraBrokerIP: 0.0.0.0
 
 # Communication related parameters
-Nao_HighCommunicationFrequency: 50
-Nao_LowCommunicationFrequency: 10
-Nao_ControllerFrequency: 10
-Nao_CameraFrequency: 15
+HighCommunicationFrequency: 25
+LowCommunicationFrequency: 10
+ControllerFrequency: 10
+CameraFrequency: 15
 
 # DO NOT CHANGE IT
-Nao_Prefix: nao_dcm
+Prefix: nao_dcm

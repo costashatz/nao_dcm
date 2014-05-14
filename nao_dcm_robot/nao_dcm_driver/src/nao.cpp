@@ -265,9 +265,16 @@ bool Nao::initialize()
 
         // Create Joints Hardness Alias
         commandAlias[0] = string("JointsHardness");
+        commandAlias[1].arraySetSize(number_of_joints_-1);
+        int k = 0;
         for(int i=0;i<number_of_joints_;i++)
         {
-            commandAlias[1][i] = string("Device/SubDeviceList/"+joint_names_[i]+"/Hardness/Actuator/Value");
+            if(joint_names_[i] == "RHipYawPitch")
+            {
+                k = -1;
+                i++;
+            }
+            commandAlias[1][i+k] = string("Device/SubDeviceList/"+joint_names_[i]+"/Hardness/Actuator/Value");
         }
         dcm_proxy_.createAlias(commandAlias);
 
@@ -287,8 +294,8 @@ bool Nao::initialize()
     }
 
     // Turn Stiffness On
-    vector<float> stiff = vector<float>(number_of_joints_,1.0f);
-    vector<int> times = vector<int>(number_of_joints_,0);
+    vector<float> stiff = vector<float>(number_of_joints_-1,1.0f);
+    vector<int> times = vector<int>(number_of_joints_-1,0);
     DCMAliasTimedCommand("JointsHardness",stiff, times);
     stiffnesses_enabled_ = true;
 
@@ -460,25 +467,26 @@ void Nao::subscribe()
 
 void Nao::loadParams()
 {
+    ros::NodeHandle n_p("~");
     // Load Server Parameters
-    node_handle_.param("Nao_Version", version_, string("V4"));
-    node_handle_.param("Nao_BodyType", body_type_, string("H21"));
+    n_p.param("Version", version_, string("V4"));
+    n_p.param("BodyType", body_type_, string("H21"));
 
-    node_handle_.param("Nao_TactilesEnabled", tactiles_enabled_, true);
-    node_handle_.param("Nao_BumpersEnabled", bumpers_enabled_, true);
-    node_handle_.param("Nao_SonarEnabled", sonar_enabled_, true);
-    node_handle_.param("Nao_FootContactsEnabled", foot_contacts_enabled_, true);
+    n_p.param("TactilesEnabled", tactiles_enabled_, true);
+    n_p.param("BumpersEnabled", bumpers_enabled_, true);
+    n_p.param("SonarEnabled", sonar_enabled_, true);
+    n_p.param("FootContactsEnabled", foot_contacts_enabled_, true);
 
-    node_handle_.param("Nao_PublishIMU", imu_published_, true);
+    n_p.param("PublishIMU", imu_published_, true);
 
-    node_handle_.param("Nao_TopicQueue", topic_queue_, 50);
+    n_p.param("TopicQueue", topic_queue_, 50);
 
-    node_handle_.param("Nao_Prefix", prefix_, string("nao_dcm"));
+    n_p.param("Prefix", prefix_, string("nao_dcm"));
     prefix_ = prefix_+"/";
 
-    node_handle_.param("Nao_LowCommunicationFrequency", low_freq_, 10.0);
-    node_handle_.param("Nao_HighCommunicationFrequency", high_freq_, 100.0);
-    node_handle_.param("Nao_ControllerFrequency", controller_freq_, 15.0);
+    n_p.param("LowCommunicationFrequency", low_freq_, 10.0);
+    n_p.param("HighCommunicationFrequency", high_freq_, 100.0);
+    n_p.param("ControllerFrequency", controller_freq_, 15.0);
 }
 
 void Nao::brokerDisconnected(const string& event_name, const string &broker_name, const string& subscriber_identifier)
