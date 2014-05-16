@@ -32,5 +32,8 @@ LowCommunicationFrequency: 10
 ControllerFrequency: 10
 CameraFrequency: 15
 
+# Robot related parameters
+JointPrecision: 0.00174532925
+
 # DO NOT CHANGE IT
 Prefix: nao_dcm

@@ -69,6 +69,12 @@ namespace AL
 class ALBroker;
 }
 
+// Helper definition
+template<typename T, size_t N>
+T * end(T (&ra)[N]) {
+    return ra + N;
+}
+
 class Nao : public AL::ALModule, public hardware_interface::RobotHW
 {
 private:
@@ -118,29 +124,29 @@ private:
     bool imu_published_, stiffnesses_enabled_;
     int topic_queue_;
     string prefix_;
-    double low_freq_, high_freq_, controller_freq_;
+    double low_freq_, high_freq_, controller_freq_, joint_precision_;
 
     // AL Proxies
     AL::ALMemoryProxy memory_proxy_;
     AL::DCMProxy dcm_proxy_;
 
     // IMU
-    AL::ALValue imu_names_;
+    vector<string> imu_names_;
     // Sonars
-    AL::ALValue sonar_names_;
+    vector<string> sonar_names_;
     // FSRs
-    AL::ALValue fsr_names_;
+    vector<string> fsr_names_;
     // Tactile
-    AL::ALValue tactile_names_;
+    vector<string> tactile_names_;
     // Bumper
-    AL::ALValue bumper_names_;
+    vector<string> bumper_names_;
     // Joints
-    AL::ALValue joints_names_;
-    AL::ALValue joint_temperature_names_;
+    vector<string> joints_names_;
+    vector<string> joint_temperature_names_;
     // Battery
-    AL::ALValue battery_names_;
+    vector<string> battery_names_;
     // LEDs
-    AL::ALValue led_names_;
+    vector<string> led_names_;
 
     // Joint States
     hardware_interface::JointStateInterface jnt_state_interface_;

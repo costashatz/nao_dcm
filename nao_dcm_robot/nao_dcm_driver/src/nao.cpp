@@ -44,7 +44,7 @@ Nao::~Nao()
 bool Nao::initialize()
 {
     // IMU Memory Keys
-    imu_names_ = AL::ALValue::array("Device/SubDeviceList/InertialSensor/AngleX/Sensor/Value",
+    const char* imu[] = {"Device/SubDeviceList/InertialSensor/AngleX/Sensor/Value",
                                     "Device/SubDeviceList/InertialSensor/AngleY/Sensor/Value",
                                     "Device/SubDeviceList/InertialSensor/AngleZ/Sensor/Value",
                                     "Device/SubDeviceList/InertialSensor/GyroscopeX/Sensor/Value",
@@ -52,10 +52,11 @@ bool Nao::initialize()
                                     "Device/SubDeviceList/InertialSensor/GyroscopeZ/Sensor/Value",
                                     "Device/SubDeviceList/InertialSensor/AccelerometerX/Sensor/Value",
                                     "Device/SubDeviceList/InertialSensor/AccelerometerY/Sensor/Value",
-                                    "Device/SubDeviceList/InertialSensor/AccelerometerZ/Sensor/Value");
+                                    "Device/SubDeviceList/InertialSensor/AccelerometerZ/Sensor/Value"};
+    imu_names_ = vector<string>(imu, end(imu));
 
     // Sonar Memory Keys
-    sonar_names_ = AL::ALValue::array("Device/SubDeviceList/US/Left/Sensor/Value",
+    const char* sonar[] = {"Device/SubDeviceList/US/Left/Sensor/Value",
                                       "Device/SubDeviceList/US/Left/Sensor/Value1",
                                       "Device/SubDeviceList/US/Left/Sensor/Value2",
                                       "Device/SubDeviceList/US/Left/Sensor/Value3",
@@ -64,20 +65,21 @@ bool Nao::initialize()
                                       "Device/SubDeviceList/US/Left/Sensor/Value6",
                                       "Device/SubDeviceList/US/Left/Sensor/Value7",
                                       "Device/SubDeviceList/US/Left/Sensor/Value8",
-                                      "Device/SubDeviceList/US/Left/Sensor/Value9");
-    sonar_names_.arrayPush("Device/SubDeviceList/US/Right/Sensor/Value");
-    sonar_names_.arrayPush("Device/SubDeviceList/US/Right/Sensor/Value1");
-    sonar_names_.arrayPush("Device/SubDeviceList/US/Right/Sensor/Value2");
-    sonar_names_.arrayPush("Device/SubDeviceList/US/Right/Sensor/Value3");
-    sonar_names_.arrayPush("Device/SubDeviceList/US/Right/Sensor/Value4");
-    sonar_names_.arrayPush("Device/SubDeviceList/US/Right/Sensor/Value5");
-    sonar_names_.arrayPush("Device/SubDeviceList/US/Right/Sensor/Value6");
-    sonar_names_.arrayPush("Device/SubDeviceList/US/Right/Sensor/Value7");
-    sonar_names_.arrayPush("Device/SubDeviceList/US/Right/Sensor/Value8");
-    sonar_names_.arrayPush("Device/SubDeviceList/US/Right/Sensor/Value9");
+                                      "Device/SubDeviceList/US/Left/Sensor/Value9",
+                                      "Device/SubDeviceList/US/Right/Sensor/Value",
+                                      "Device/SubDeviceList/US/Right/Sensor/Value1",
+                                      "Device/SubDeviceList/US/Right/Sensor/Value2",
+                                      "Device/SubDeviceList/US/Right/Sensor/Value3",
+                                      "Device/SubDeviceList/US/Right/Sensor/Value4",
+                                      "Device/SubDeviceList/US/Right/Sensor/Value5",
+                                      "Device/SubDeviceList/US/Right/Sensor/Value6",
+                                      "Device/SubDeviceList/US/Right/Sensor/Value7",
+                                      "Device/SubDeviceList/US/Right/Sensor/Value8",
+                                      "Device/SubDeviceList/US/Right/Sensor/Value9"};
+    sonar_names_ = vector<string>(sonar, end(sonar));
 
     // Foot Contact Memory Keys
-    fsr_names_ = AL::ALValue::array("Device/SubDeviceList/LFoot/FSR/FrontLeft/Sensor/Value",
+    const char* fsr[] = {"Device/SubDeviceList/LFoot/FSR/FrontLeft/Sensor/Value",
                                     "Device/SubDeviceList/LFoot/FSR/FrontRight/Sensor/Value",
                                     "Device/SubDeviceList/LFoot/FSR/RearLeft/Sensor/Value",
                                     "Device/SubDeviceList/LFoot/FSR/RearRight/Sensor/Value",
@@ -86,14 +88,15 @@ bool Nao::initialize()
                                     "Device/SubDeviceList/RFoot/FSR/FrontRight/Sensor/Value",
                                     "Device/SubDeviceList/RFoot/FSR/RearLeft/Sensor/Value",
                                     "Device/SubDeviceList/RFoot/FSR/RearRight/Sensor/Value",
-                                    "Device/SubDeviceList/RFoot/FSR/TotalWeight/Sensor/Value");
-    fsr_names_.arrayPush("Device/SubDeviceList/LFoot/FSR/CenterOfPressure/X/Sensor/Value");
-    fsr_names_.arrayPush("Device/SubDeviceList/LFoot/FSR/CenterOfPressure/Y/Sensor/Value");
-    fsr_names_.arrayPush("Device/SubDeviceList/RFoot/FSR/CenterOfPressure/X/Sensor/Value");
-    fsr_names_.arrayPush("Device/SubDeviceList/RFoot/FSR/CenterOfPressure/Y/Sensor/Value");
+                                    "Device/SubDeviceList/RFoot/FSR/TotalWeight/Sensor/Value",
+                                    "Device/SubDeviceList/LFoot/FSR/CenterOfPressure/X/Sensor/Value",
+                                    "Device/SubDeviceList/LFoot/FSR/CenterOfPressure/Y/Sensor/Value",
+                                    "Device/SubDeviceList/RFoot/FSR/CenterOfPressure/X/Sensor/Value",
+                                    "Device/SubDeviceList/RFoot/FSR/CenterOfPressure/Y/Sensor/Value"};
+    fsr_names_ = vector<string>(fsr, end(fsr));
 
     // Tactile Memory Keys
-    tactile_names_ = AL::ALValue::array("Device/SubDeviceList/Head/Touch/Front/Sensor/Value",
+    const char* tactile[] = {"Device/SubDeviceList/Head/Touch/Front/Sensor/Value",
                                         "Device/SubDeviceList/Head/Touch/Middle/Sensor/Value",
                                         "Device/SubDeviceList/Head/Touch/Rear/Sensor/Value",
                                         "Device/SubDeviceList/LHand/Touch/Back/Sensor/Value",
@@ -101,137 +104,142 @@ bool Nao::initialize()
                                         "Device/SubDeviceList/LHand/Touch/Right/Sensor/Value",
                                         "Device/SubDeviceList/RHand/Touch/Back/Sensor/Value",
                                         "Device/SubDeviceList/RHand/Touch/Left/Sensor/Value",
-                                        "Device/SubDeviceList/RHand/Touch/Right/Sensor/Value");
+                                        "Device/SubDeviceList/RHand/Touch/Right/Sensor/Value"};
+    tactile_names_ = vector<string>(tactile, end(tactile));
 
     // Bumper Memory Keys
-    bumper_names_ = AL::ALValue::array("Device/SubDeviceList/LFoot/Bumper/Left/Sensor/Value",
+    const char* bumper[] = {"Device/SubDeviceList/LFoot/Bumper/Left/Sensor/Value",
                                        "Device/SubDeviceList/LFoot/Bumper/Right/Sensor/Value",
                                        "Device/SubDeviceList/RFoot/Bumper/Left/Sensor/Value",
-                                       "Device/SubDeviceList/RFoot/Bumper/Right/Sensor/Value");
+                                       "Device/SubDeviceList/RFoot/Bumper/Right/Sensor/Value"};
+    bumper_names_ = vector<string>(bumper, end(bumper));
 
     // Battery Memory Keys
-    battery_names_ = AL::ALValue::array("Device/SubDeviceList/Battery/Charge/Sensor/Value",
-                                        "Device/SubDeviceList/Battery/Temperature/Sensor/Value");
+    const char* battery[] = {"Device/SubDeviceList/Battery/Charge/Sensor/Value",
+                                        "Device/SubDeviceList/Battery/Temperature/Sensor/Value"};
+    battery_names_ = vector<string>(battery, end(battery));
 
     // LED Memory Keys
-    led_names_.arrayPush("Device/SubDeviceList/ChestBoard/Led/Blue/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/ChestBoard/Led/Green/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/ChestBoard/Led/Red/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Left/0Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Left/108Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Left/144Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Left/180Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Left/216Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Left/252Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Left/288Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Left/324Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Left/36Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Left/72Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Right/0Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Right/108Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Right/144Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Right/180Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Right/216Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Right/252Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Right/288Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Right/324Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Right/36Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Ears/Led/Right/72Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Left/0Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Left/135Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Left/180Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Left/225Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Left/270Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Left/315Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Left/45Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Left/90Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Right/0Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Right/135Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Right/180Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Right/225Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Right/270Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Right/315Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Right/45Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Blue/Right/90Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Left/0Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Left/135Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Left/180Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Left/225Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Left/270Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Left/315Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Left/45Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Left/90Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Right/0Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Right/135Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Right/180Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Right/225Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Right/270Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Right/315Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Right/45Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Green/Right/90Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Left/0Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Left/135Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Left/180Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Left/225Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Left/270Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Left/315Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Left/45Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Left/90Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Right/0Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Right/135Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Right/180Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Right/225Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Right/270Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Right/315Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Right/45Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Face/Led/Red/Right/90Deg/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Front/Left/0/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Front/Left/1/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Front/Right/0/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Front/Right/1/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Middle/Left/0/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Middle/Right/0/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Rear/Left/0/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Rear/Left/1/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Rear/Left/2/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Rear/Right/0/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Rear/Right/1/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/Head/Led/Rear/Right/2/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/LFoot/Led/Blue/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/LFoot/Led/Green/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/LFoot/Led/Red/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/RFoot/Led/Blue/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/RFoot/Led/Green/Actuator/Value");
-    led_names_.arrayPush("Device/SubDeviceList/RFoot/Led/Red/Actuator/Value");
+    const char* led[] = {"Device/SubDeviceList/ChestBoard/Led/Blue/Actuator/Value",
+                                        "Device/SubDeviceList/ChestBoard/Led/Green/Actuator/Value",
+                                        "Device/SubDeviceList/ChestBoard/Led/Red/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Left/0Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Left/108Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Left/144Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Left/180Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Left/216Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Left/252Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Left/288Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Left/324Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Left/36Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Left/72Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Right/0Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Right/108Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Right/144Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Right/180Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Right/216Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Right/252Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Right/288Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Right/324Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Right/36Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Ears/Led/Right/72Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Left/0Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Left/135Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Left/180Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Left/225Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Left/270Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Left/315Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Left/45Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Left/90Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Right/0Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Right/135Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Right/180Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Right/225Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Right/270Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Right/315Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Right/45Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Blue/Right/90Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Left/0Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Left/135Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Left/180Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Left/225Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Left/270Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Left/315Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Left/45Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Left/90Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Right/0Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Right/135Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Right/180Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Right/225Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Right/270Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Right/315Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Right/45Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Green/Right/90Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Left/0Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Left/135Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Left/180Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Left/225Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Left/270Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Left/315Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Left/45Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Left/90Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Right/0Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Right/135Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Right/180Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Right/225Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Right/270Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Right/315Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Right/45Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Face/Led/Red/Right/90Deg/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Front/Left/0/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Front/Left/1/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Front/Right/0/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Front/Right/1/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Middle/Left/0/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Middle/Right/0/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Rear/Left/0/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Rear/Left/1/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Rear/Left/2/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Rear/Right/0/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Rear/Right/1/Actuator/Value",
+                                        "Device/SubDeviceList/Head/Led/Rear/Right/2/Actuator/Value",
+                                        "Device/SubDeviceList/LFoot/Led/Blue/Actuator/Value",
+                                        "Device/SubDeviceList/LFoot/Led/Green/Actuator/Value",
+                                        "Device/SubDeviceList/LFoot/Led/Red/Actuator/Value",
+                                        "Device/SubDeviceList/RFoot/Led/Blue/Actuator/Value",
+                                        "Device/SubDeviceList/RFoot/Led/Green/Actuator/Value",
+                                        "Device/SubDeviceList/RFoot/Led/Red/Actuator/Value"};
+    led_names_ = vector<string>(led, end(led));
 
     // Joints Initialization
-    joint_names_ = vector<string>();
-    joint_names_.push_back("HeadYaw");
-    joint_names_.push_back("HeadPitch");
-    joint_names_.push_back("LShoulderPitch");
-    joint_names_.push_back("LShoulderRoll");
-    joint_names_.push_back("LElbowYaw");
-    joint_names_.push_back("LElbowRoll");
-    joint_names_.push_back("LWristYaw");
-    joint_names_.push_back("LHand");
-    joint_names_.push_back("RShoulderPitch");
-    joint_names_.push_back("RShoulderRoll");
-    joint_names_.push_back("RElbowYaw");
-    joint_names_.push_back("RElbowRoll");
-    joint_names_.push_back("RWristYaw");
-    joint_names_.push_back("RHand");
-    joint_names_.push_back("LHipYawPitch");
-    joint_names_.push_back("RHipYawPitch");
-    joint_names_.push_back("LHipRoll");
-    joint_names_.push_back("LHipPitch");
-    joint_names_.push_back("LKneePitch");
-    joint_names_.push_back("LAnklePitch");
-    joint_names_.push_back("LAnkleRoll");
-    joint_names_.push_back("RHipRoll");
-    joint_names_.push_back("RHipPitch");
-    joint_names_.push_back("RKneePitch");
-    joint_names_.push_back("RAnklePitch");
-    joint_names_.push_back("RAnkleRoll");
+    const char* joint[] = {"HeadYaw",
+                            "HeadPitch",
+                            "LShoulderPitch",
+                            "LShoulderRoll",
+                            "LElbowYaw",
+                            "LElbowRoll",
+                            "LWristYaw",
+                            "LHand",
+                            "RShoulderPitch",
+                            "RShoulderRoll",
+                            "RElbowYaw",
+                            "RElbowRoll",
+                            "RWristYaw",
+                            "RHand",
+                            "LHipYawPitch",
+                            "RHipYawPitch",
+                            "LHipRoll",
+                            "LHipPitch",
+                            "LKneePitch",
+                            "LAnklePitch",
+                            "LAnkleRoll",
+                            "RHipRoll",
+                            "RHipPitch",
+                            "RKneePitch",
+                            "RAnklePitch",
+                            "RAnkleRoll"};
+    joint_names_ = vector<string>(joint, end(joint));
+    
     for(vector<string>::iterator it=joint_names_.begin();it!=joint_names_.end();it++)
     {
         if((*it=="RHand" || *it=="LHand" || *it == "RWristYaw" || *it == "LWristYaw") && (body_type_ == "H21"))
@@ -240,10 +248,10 @@ bool Nao::initialize()
             it--;
             continue;
         }
-        joints_names_.arrayPush("Device/SubDeviceList/"+(*it)+"/Position/Sensor/Value");
+        joints_names_.push_back("Device/SubDeviceList/"+(*it)+"/Position/Sensor/Value");
         if(*it!="RHipYawPitch")
         {
-            joint_temperature_names_.arrayPush("Device/SubDeviceList/"+(*it)+"/Temperature/Sensor/Value");
+            joint_temperature_names_.push_back("Device/SubDeviceList/"+(*it)+"/Temperature/Sensor/Value");
         }
     }
     number_of_joints_ = joint_names_.size();
@@ -495,6 +503,7 @@ void Nao::loadParams()
     n_p.param("LowCommunicationFrequency", low_freq_, 10.0);
     n_p.param("HighCommunicationFrequency", high_freq_, 100.0);
     n_p.param("ControllerFrequency", controller_freq_, 15.0);
+    n_p.param("JointPrecision", joint_precision_, 0.00174532925);
 }
 
 void Nao::brokerDisconnected(const string& event_name, const string &broker_name, const string& subscriber_identifier)
@@ -770,7 +779,7 @@ void Nao::publishIMU(const ros::Time &ts)
         return;
     }
 
-    if (memData.size() != imu_names_.getSize())
+    if (memData.size() != imu_names_.size())
     {
         ROS_ERROR("IMU readings' size is not correct!");
         return;
@@ -873,6 +882,22 @@ void Nao::readJoints()
 
 void Nao::writeJoints()
 {
+    // Update joints only when actual command is issued
+    bool changed = false;
+    for(int i=0;i<number_of_joints_;i++)
+    {
+        if(fabs(joint_commands_[i]-joint_angles_[i])>joint_precision_)
+        {
+            changed = true;
+            break;
+        }
+    }
+    // Do not write joints if no change in joint values
+    if(!changed)
+    {
+        return;
+    }
+
     try
     {
         int T = dcm_proxy_.getTime(0);
