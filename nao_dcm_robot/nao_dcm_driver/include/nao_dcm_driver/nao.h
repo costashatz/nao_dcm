@@ -123,7 +123,7 @@ private:
     bool sonar_enabled_, tactiles_enabled_, bumpers_enabled_, foot_contacts_enabled_;
     bool imu_published_, stiffnesses_enabled_;
     int topic_queue_;
-    string prefix_;
+    string prefix_, odom_frame_;
     double low_freq_, high_freq_, controller_freq_, joint_precision_;
 
     // AL Proxies

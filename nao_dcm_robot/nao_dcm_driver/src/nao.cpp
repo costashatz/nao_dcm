@@ -504,6 +504,7 @@ void Nao::loadParams()
     n_p.param("HighCommunicationFrequency", high_freq_, 100.0);
     n_p.param("ControllerFrequency", controller_freq_, 15.0);
     n_p.param("JointPrecision", joint_precision_, 0.00174532925);
+    n_p.param("OdomFrame", odom_frame_, string("odom"));
 }
 
 void Nao::brokerDisconnected(const string& event_name, const string &broker_name, const string& subscriber_identifier)
@@ -820,7 +821,7 @@ void Nao::publishBaseFootprint(const ros::Time &ts)
 {
     string odom_frame, l_sole_frame, r_sole_frame, base_link_frame;
     try {
-        odom_frame = base_footprint_listener_.resolve("odom_combined");
+        odom_frame = base_footprint_listener_.resolve(odom_frame_);
         l_sole_frame = base_footprint_listener_.resolve("l_sole");
         r_sole_frame = base_footprint_listener_.resolve("r_sole");
         base_link_frame = base_footprint_listener_.resolve("base_link");
