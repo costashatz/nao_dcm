@@ -36,7 +36,7 @@ if( NAOqi_FOUND AND Boost_FOUND)
         ${catkin_INCLUDE_DIRS}
         ${NAOqi_INCLUDE_DIRS}
     	  ${Boost_INCLUDE_DIRS})
-    add_executable(nao_dcm_camera src/nao_camera.cpp)
+    add_executable(nao_dcm_camera src/nao_camera_node.cpp src/nao_camera.cpp)
     target_link_libraries(nao_dcm_camera
         ${catkin_LIBRARIES}
         ${NAOqi_LIBRARIES}
