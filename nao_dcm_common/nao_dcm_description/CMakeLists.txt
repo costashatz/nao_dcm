@@ -6,7 +6,7 @@ project(nao_dcm_description)
 find_package(catkin REQUIRED)
 
 ##Needed for ros packages
-catkin_package(CATKIN_DEPENDS xacro)
+catkin_package(CATKIN_DEPENDS xacro nao_meshes)
 
 install(DIRECTORY launch 
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

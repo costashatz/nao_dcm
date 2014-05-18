@@ -24,156 +24,385 @@
     <!-- XACRO MACROS FOR VISUALS AND COLLISIONS -->
 
 	<xacro:macro name="visuals_collisions_torso" params="">
-		<visual>
-			<origin xyz="0 0 0.02075" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.04 0.1 0.2115"/>
-            </geometry>
-			<material name="Blue"/>
-		</visual>
-		<collision>
-			<origin xyz="0 0 0.02075" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.04 0.1 0.2115"/>
-            </geometry>
-		</collision>
+		<xacro:unless value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0.02075" rpy="0 0 0"/>
+	            <geometry>
+	                <box size="0.04 0.1 0.2115"/>
+	            </geometry>
+				<material name="Blue"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0.02075" rpy="0 0 0"/>
+	            <geometry>
+	                <box size="0.04 0.1 0.2115"/>
+	            </geometry>
+			</collision>
+		</xacro:unless>
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/Torso.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/Torso.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
 	</xacro:macro>
 
 	<xacro:macro name="visuals_collisions_head_yaw" params="">
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/HeadYaw.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/HeadYaw.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
 	</xacro:macro>
 
 	<xacro:macro name="visuals_collisions_head_pitch" params="">
-		<visual>
-			<origin xyz="0 0 0.058" rpy="${PI_2} 0 0"/>
-            <geometry>
-                <cylinder radius="0.04" length="0.14"/>
-            </geometry>
-			<material name="Green"/>
-		</visual>
-		<collision>
-			<origin xyz="0 0 0.058" rpy="${PI_2} 0 0"/>
-            <geometry>
-                <cylinder radius="0.04" length="0.14"/>
-            </geometry>
-		</collision>
+		<xacro:unless value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0.058" rpy="${PI_2} 0 0"/>
+	            <geometry>
+	                <cylinder radius="0.04" length="0.14"/>
+	            </geometry>
+				<material name="Green"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0.058" rpy="${PI_2} 0 0"/>
+	            <geometry>
+	                <cylinder radius="0.04" length="0.14"/>
+	            </geometry>
+			</collision>
+		</xacro:unless>
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/HeadPitch.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/HeadPitch.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
+	</xacro:macro>
+
+	<xacro:macro name="visuals_collisions_shoulder_pitch" params="side">
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/${side}ShoulderPitch.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/${side}ShoulderPitch.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
 	</xacro:macro>
 
 	<xacro:macro name="visuals_collisions_shoulder_roll" params="side">
-		<visual>
-			<origin xyz="0.045 0 0" rpy="${PI_2} 0 ${PI_2}"/>
-            <geometry>
-                <cylinder radius="0.02" length="0.09"/>
-            </geometry>
-			<material name="Green"/>
-		</visual>
-		<collision>
-			<origin xyz="0.045 0 0" rpy="${PI_2} 0 ${PI_2}"/>
-            <geometry>
-                <cylinder radius="0.02" length="0.09"/>
-            </geometry>
-		</collision>
+		<xacro:unless value="${nao_meshes}">
+			<visual>
+				<origin xyz="0.045 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+	            <geometry>
+	                <cylinder radius="0.02" length="0.09"/>
+	            </geometry>
+				<material name="Green"/>
+			</visual>
+			<collision>
+				<origin xyz="0.045 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+	            <geometry>
+	                <cylinder radius="0.02" length="0.09"/>
+	            </geometry>
+			</collision>
+		</xacro:unless>
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/${side}ShoulderRoll.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/${side}ShoulderRoll.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
 	</xacro:macro>
 
 	<xacro:macro name="visuals_collisions_elbow_roll" params="side">
-		<visual>
-			<origin xyz="0.025325 0 0" rpy="${PI_2} 0 ${PI_2}"/>
-            <geometry>
-                <cylinder radius="0.02" length="0.05065"/>
-            </geometry>
-			<material name="Red"/>
-		</visual>
-		<collision>
-            <origin xyz="0.025325 0 0" rpy="${PI_2} 0 ${PI_2}"/>
-            <geometry>
-                <cylinder radius="0.02" length="0.05065"/>
-            </geometry>
-		</collision>
+		<xacro:unless value="${nao_meshes}">
+			<visual>
+				<origin xyz="0.025325 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+	            <geometry>
+	                <cylinder radius="0.02" length="0.05065"/>
+	            </geometry>
+				<material name="Red"/>
+			</visual>
+			<collision>
+	            <origin xyz="0.025325 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+	            <geometry>
+	                <cylinder radius="0.02" length="0.05065"/>
+	            </geometry>
+			</collision>
+		</xacro:unless>
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/${side}ElbowRoll.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/${side}ElbowRoll.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
   	</xacro:macro>
 
   	<xacro:macro name="visuals_collisions_wrist_yaw" params="side reflect">
-		<visual>
-			<origin xyz="0.029 0 0" rpy="${PI_2} 0 ${PI_2}"/>
-            <geometry>
-                <box size="0.03 0.02 0.058"/>
-            </geometry>
-			<material name="Yellow"/>
-		</visual>
-		<collision>
-			<origin xyz="0.029 0 0" rpy="${PI_2} 0 ${PI_2}"/>
-            <geometry>
-                <box size="0.03 0.02 0.058"/>
-            </geometry>
-		</collision>
+  		<xacro:unless value="${nao_meshes}">
+			<visual>
+				<origin xyz="0.029 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+	            <geometry>
+	                <box size="0.03 0.02 0.058"/>
+	            </geometry>
+				<material name="Yellow"/>
+			</visual>
+			<collision>
+				<origin xyz="0.029 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+	            <geometry>
+	                <box size="0.03 0.02 0.058"/>
+	            </geometry>
+			</collision>
+		</xacro:unless>
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/WristYaw.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/WristYaw.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
     </xacro:macro>
 
     <xacro:macro name="visuals_collisions_hip_yaw_pitch" params="side reflect">
+    	<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/${side}HipYawPitch.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/${side}HipYawPitch.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
     </xacro:macro>
 
     <xacro:macro name="visuals_collisions_hip_roll" params="side">
+    	<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/${side}HipRoll.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/${side}HipRoll.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
 	</xacro:macro>
 
 	<xacro:macro name="visuals_collisions_hip_pitch" params="side reflect">
-		<visual>
-			<origin xyz="0 0 -0.05" rpy="0 0 0"/>
-            <geometry>
-                <cylinder radius="0.02" length="0.1"/>
-            </geometry>
-			<material name="Yellow"/>
-		</visual>
-		<collision>
-			<origin xyz="0 0 -0.05" rpy="0 0 0"/>
-            <geometry>
-                <cylinder radius="0.02" length="0.1"/>
-            </geometry>
-		</collision>
+		<xacro:unless value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 -0.05" rpy="0 0 0"/>
+	            <geometry>
+	                <cylinder radius="0.02" length="0.1"/>
+	            </geometry>
+				<material name="Yellow"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 -0.05" rpy="0 0 0"/>
+	            <geometry>
+	                <cylinder radius="0.02" length="0.1"/>
+	            </geometry>
+			</collision>
+		</xacro:unless>
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/${side}HipPitch.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/${side}HipPitch.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
 	</xacro:macro>
 
 	<xacro:macro name="visuals_collisions_knee_pitch" params="side reflect">
-		<visual>
-			<origin xyz="0 0 -0.05" rpy="0 0 0"/>
-            <geometry>
-                <cylinder radius="0.02" length="0.1"/>
-            </geometry>
-			<material name="Yellow"/>
-		</visual>
-		<collision>
-			<origin xyz="0 0 -0.05" rpy="0 0 0"/>
-            <geometry>
-                <cylinder radius="0.02" length="0.1"/>
-            </geometry>
-		</collision>
+		<xacro:unless value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 -0.05" rpy="0 0 0"/>
+	            <geometry>
+	                <cylinder radius="0.02" length="0.1"/>
+	            </geometry>
+				<material name="Yellow"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 -0.05" rpy="0 0 0"/>
+	            <geometry>
+	                <cylinder radius="0.02" length="0.1"/>
+	            </geometry>
+			</collision>
+		</xacro:unless>
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/${side}KneePitch.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/${side}KneePitch.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
 	</xacro:macro>
 
 	<xacro:macro name="visuals_collisions_ankle_pitch" params="side">
-		<visual>
-			<origin xyz="0 0 -0.023" rpy="0 0 0"/>
-            <geometry>
-                <cylinder radius="0.02" length="0.046"/>
-            </geometry>
-			<material name="Yellow"/>
-		</visual>
-		<collision>
-			<origin xyz="0 0 -0.023" rpy="0 0 0"/>
-            <geometry>
-                <cylinder radius="0.02" length="0.046"/>
-            </geometry>
-		</collision>
+		<xacro:unless value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 -0.023" rpy="0 0 0"/>
+	            <geometry>
+	                <cylinder radius="0.02" length="0.046"/>
+	            </geometry>
+				<material name="Yellow"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 -0.023" rpy="0 0 0"/>
+	            <geometry>
+	                <cylinder radius="0.02" length="0.046"/>
+	            </geometry>
+			</collision>
+		</xacro:unless>
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/${side}AnklePitch.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/${side}AnklePitch.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
 	</xacro:macro>
 
 	<xacro:macro name="visuals_collisions_ankle_roll" params="side">
-		<visual>
-			<origin xyz="0.02 0 -0.042" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.16 0.08 0.015"/>
-            </geometry>
-			<material name="Yellow"/>
-		</visual>
-		<collision>
-            <origin xyz="0.02 0 -0.042" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.16 0.06 0.015"/>
-            </geometry>
-		</collision>
+		<xacro:unless value="${nao_meshes}">
+			<visual>
+				<origin xyz="0.02 0 -0.042" rpy="0 0 0"/>
+	            <geometry>
+	                <box size="0.16 0.08 0.015"/>
+	            </geometry>
+				<material name="Yellow"/>
+			</visual>
+			<collision>
+	            <origin xyz="0.02 0 -0.042" rpy="0 0 0"/>
+	            <geometry>
+	                <box size="0.16 0.06 0.015"/>
+	            </geometry>
+			</collision>
+		</xacro:unless>
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/${side}AnkleRoll.obj"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/${side}AnkleRoll.ply"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
 	</xacro:macro>
 
 	<!-- END OF XACRO MACROS -->

@@ -48,6 +48,7 @@
             <axis xyz="0 1 0"/>
         </joint>
         <link name="${side}Shoulder">
+            <xacro:visuals_collisions_shoulder_pitch side="${side}"/>
             <inertial>
                 <!-- CENTER OF MASS -->
                 <origin rpy="0 0 0" xyz="-0.00165 ${reflect*(-0.02663)} 0.00014"/>
