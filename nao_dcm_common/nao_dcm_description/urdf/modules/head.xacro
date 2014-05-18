@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<!-- TORSO-HEAD JOINT -->
+    <joint name="HeadYaw" type="revolute">
+        <parent link="torso"/>
+        <child link="neck"/>
+        <limit effort="${150.27*14.3/1000.0}" lower="-2.0857" upper="2.0857" velocity="3.0"/>
+        <origin rpy="0 0 0" xyz="0 0 0.1265"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+    <!-- HEAD -->
+    <link name="neck">
+        <xacro:visuals_collisions_head_yaw/>
+        <inertial>
+            <!-- CENTER OF MASS -->
+            <origin rpy="0 0 0" xyz="-0.00001 0.00014 -0.02742"/>
+            <mass value="0.06442"/>
+            <inertia ixx="0.00007499295" ixy="0.00000000157" ixz="-0.00000001834" iyy="0.00007599995" iyz="-0.00000005295" izz="0.00000553373"/>
+        </inertial>
+    </link>
+    <joint name="HeadPitch" type="revolute">
+        <parent link="neck"/>
+        <child link="gaze"/>
+        <limit effort="${173.22*14.3/1000.0}" lower="-0.6720" upper="0.5149" velocity="3.0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="gaze">
+        <xacro:visuals_collisions_head_pitch/>
+        <inertial>
+            <!-- CENTER OF MASS -->
+            <origin rpy="0 0 0" xyz="-0.00112 0.00003 0.05258"/>
+            <mass value="0.60533"/>
+            <inertia ixx="0.00263129518" ixy="0.00000878814" ixz="0.00004098466" iyy="0.00249112488" iyz="-0.00002995792" izz="0.00098573565"/>
+        </inertial>
+    </link>
+</robot>

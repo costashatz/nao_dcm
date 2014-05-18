@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<!-- CAMERAS -->
+    <joint name="TopCamera" type="fixed">
+    	<parent link="gaze"/>
+    	<child link="CameraTop"/>
+    	<origin xyz="0.05871 0 0.06364" rpy="0 0.0209 0"/>
+    </joint>
+    <link name="CameraTop"/>
+    <joint name="BottomCamera" type="fixed">
+    	<parent link="gaze"/>
+    	<child link="CameraBottom"/>
+    	<origin xyz="0.05071 0 0.01774" rpy="0 0.6929 0"/>
+    </joint>
+    <link name="CameraBottom"/>
+</robot>

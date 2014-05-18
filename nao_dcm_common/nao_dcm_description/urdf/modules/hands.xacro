@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<!-- H25 Hands -->
+	<xacro:if value="${H25}">
+	    <joint name="LWristYaw" type="revolute">
+	        <parent link="LElbowDummy"/>
+	        <child link="l_wrist"/>
+	        <origin rpy="0 0 0" xyz="0.05595 0 0"/>
+	        <limit effort="${50.61*9.4/1000.0}" lower="-1.8238" upper="1.8238" velocity="3.0"/>
+	    </joint>
+	    <link name="l_wrist">
+	        <xacro:visuals_collisions_wrist_yaw reflect="1" side="L"/>
+	        <inertial>
+	            <!-- CENTER OF MASS -->
+	            <origin rpy="0 0 0" xyz="0.03434 -0.00088 0.00308"/>
+	            <mass value="0.18533"/>
+	            <inertia ixx="0.00007054933" ixy="0.00000571599" ixz="-0.00002247437" iyy="0.00035606232" iyz="0.00000317771" izz="0.00035191933"/>
+	        </inertial>
+	    </link>
+	    <!-- DUMMY REVOLUTE JOINT - JUST THERE TO RETURN VALUES BETWEEN 0.0 AND 1.0 THAT THE ROBOT RETURNS -->
+	    <joint name="LHand" type="revolute">
+	        <parent link="l_wrist"/>
+	        <child link="l_gripper"/>
+	        <origin rpy="0 0 0" xyz="0.05775 0 0"/>
+	        <limit effort="${36.24*9.4/1000.0}" lower="0.0" upper="1.0" velocity="3.0"/>
+	    </joint>
+	    <link name="l_gripper">
+	        <inertial> <!-- dummy values for gazebo -->
+	            <mass value="0.2e-5" />
+	            <origin xyz="0 0 0"/>
+	            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+	        </inertial>
+	    </link>
+	    <joint name="RWristYaw" type="revolute">
+	        <parent link="RElbowDummy"/>
+	        <child link="r_wrist"/>
+	        <origin rpy="0 0 0" xyz="0.05595 0 0"/>
+	        <limit effort="${50.61*9.4/1000.0}" lower="-1.8238" upper="1.8238" velocity="3.0"/>
+	    </joint>
+	    <link name="r_wrist">
+	        <xacro:visuals_collisions_wrist_yaw reflect="-1" side="R"/>
+	        <inertial>
+	            <!-- CENTER OF MASS -->
+	            <origin rpy="0 0 0" xyz="0.03434 -0.00088 0.00308"/>
+	            <mass value="0.18533"/>
+	            <inertia ixx="0.00007054933" ixy="0.00000571599" ixz="-0.00002247437" iyy="0.00035606232" iyz="0.00000317771" izz="0.00035191933"/>
+	        </inertial>
+	    </link>
+	    <!-- DUMMY REVOLUTE JOINT - JUST THERE TO RETURN VALUES BETWEEN 0.0 AND 1.0 THAT THE ROBOT RETURNS -->
+	    <joint name="RHand" type="revolute">
+	        <parent link="r_wrist"/>
+	        <child link="r_gripper"/>
+	        <origin rpy="0 0 0" xyz="0.05775 0 0"/>
+	        <limit effort="${36.24*9.4/1000.0}" lower="0.0" upper="1.0" velocity="3.0"/>
+	    </joint>
+	    <link name="r_gripper">
+	        <inertial> <!-- dummy values for gazebo -->
+	            <mass value="0.2e-5" />
+	            <origin xyz="0 0 0"/>
+	            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+	        </inertial>
+	    </link>
+	</xacro:if>
+
+	<!-- H21 Hands -->
+	<xacro:unless value="${H25}">
+	    <joint name="LWristYaw" type="fixed">
+	        <parent link="LElbowDummy"/>
+	        <child link="l_wrist"/>
+	        <origin rpy="0 0 0" xyz="0.05595 0 0"/>
+	    </joint>
+	    <link name="l_wrist">
+	        <xacro:visuals_collisions_wrist_yaw reflect="1" side="L"/>
+	        <inertial>
+	            <!-- CENTER OF MASS -->
+	            <origin rpy="0 0 0" xyz="0.06530 0.00114 0.00051"/>
+	            <mass value="0.18415"/>
+	            <inertia ixx="0.00007810423" ixy="-0.00001233383" ixz="0.00000744169" iyy="0.00112084378" iyz="-0.00000054551" izz="0.00112214306"/>
+	        </inertial>
+	    </link>
+	    <joint name="RWristYaw" type="fixed">
+	        <parent link="RElbowDummy"/>
+	        <child link="r_wrist"/>
+	        <origin rpy="0 0 0" xyz="0.05595 0 0"/>
+	    </joint>
+	    <link name="r_wrist">
+	        <xacro:visuals_collisions_wrist_yaw reflect="-1" side="R"/>
+	        <inertial>
+	            <!-- CENTER OF MASS -->
+	            <origin rpy="0 0 0" xyz="0.06530 0.00114 0.00051"/>
+	            <mass value="0.18415"/>
+	            <inertia ixx="0.00007810423" ixy="-0.00001233383" ixz="0.00000744169" iyy="0.00112084378" iyz="-0.00000054551" izz="0.00112214306"/>
+	        </inertial>
+	    </link>
+	</xacro:unless>
+</robot>
