@@ -5,4 +5,4 @@ moveit_setup_assistant_config:
   SRDF:
     relative_path: config/nao_robot_v4_H25.srdf
   CONFIG:
-    generated_timestamp: 1398368537
+    generated_timestamp: 1400500416
