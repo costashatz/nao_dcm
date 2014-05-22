@@ -8,6 +8,7 @@
 	<xacro:property name="H25" value="true" />
 	<xacro:property name="nao_meshes" value="true" />
 	<xacro:property name="use_helmet" value="true" />
+	<xacro:property name="helmet_cameras_viz" value="false" />
 
 	<xacro:include filename="$(find nao_dcm_description)/urdf/nao_dcm_visuals_collisions.xacro" />
 	<xacro:include filename="$(find nao_dcm_description)/urdf/nao_dcm_gazebo.xacro" />
