@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<!-- XACRO MACROS FOR VISUALS AND COLLISIONS -->
+    <xacro:macro name="visuals_collisions_left_camera" params="">
+    	<xacro:if value="${helmet_cameras_viz}">
+			<visual>
+				<origin xyz="0 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+				<geometry>
+					<mesh filename="package://nao_dcm_description/meshes/camera.dae"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+				<geometry>
+					<mesh filename="package://nao_dcm_description/meshes/camera.dae"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
+	</xacro:macro>
+
+	<xacro:macro name="visuals_collisions_right_camera" params="">
+		<xacro:if value="${helmet_cameras_viz}">
+			<visual>
+				<origin xyz="0 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+				<geometry>
+					<mesh filename="package://nao_dcm_description/meshes/camera.dae"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+				<geometry>
+					<mesh filename="package://nao_dcm_description/meshes/camera.dae"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
+	</xacro:macro>
+	<!-- HELMET CAMERAS JOINTS -->
+	<joint name="helmet-left-camera" type="fixed">
+        <parent link="helmet"/>
+        <child link="LeftCamera"/>
+        <origin xyz="0 ${0.10785/2} ${0.12496-0.0975}" rpy="0 0 0"/>
+    </joint>
+    <link name="LeftCamera">
+        <xacro:visuals_collisions_left_camera/>
+        <inertial> <!-- sample values for my cameras -->
+            <mass value="0.07" />
+            <origin xyz="0 0 0"/>
+            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+        </inertial>
+    </link>
+    <joint name="helmet-right-camera" type="fixed">
+        <parent link="helmet"/>
+        <child link="RightCamera"/>
+        <origin xyz="0 -${0.10785/2} ${0.12496-0.0975}" rpy="0 0 0"/>
+    </joint>
+    <link name="RightCamera">
+        <xacro:visuals_collisions_right_camera/>
+        <inertial> <!-- sample values for my cameras -->
+            <mass value="0.07" />
+            <origin xyz="0 0 0"/>
+            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+        </inertial>
+    </link>
+</robot>

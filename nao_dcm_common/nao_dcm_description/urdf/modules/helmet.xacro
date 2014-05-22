@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<joint name="head-helmet" type="fixed">
+        <parent link="gaze"/>
+        <child link="helmet"/>
+        <origin xyz="0 0 0.0975" rpy="0 0 0"/>
+    </joint>
+    <link name="helmet">
+        <xacro:visuals_collisions_helmet/>
+    </link>
+</robot>
