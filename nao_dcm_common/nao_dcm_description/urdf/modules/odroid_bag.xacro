@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<!-- XACRO MACROS FOR VISUALS AND COLLISIONS -->
+    <xacro:macro name="visuals_collisions_odroid_bag" params="">
+    	<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nao_dcm_description/meshes/odroid_bag.dae"  scale="${scale} ${scale} ${scale}"/>
+			</geometry>
+			<material name="LightGrey"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nao_dcm_description/meshes/odroid_bag.dae"  scale="${scale} ${scale} ${scale}"/>
+			</geometry>
+			<material name="LightGrey"/>
+		</collision>
+	</xacro:macro>
+
+	<xacro:macro name="visuals_collisions_odroid" params="">
+    	<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nao_dcm_description/meshes/odroid.dae"  scale="${scale} ${scale} ${scale}"/>
+			</geometry>
+			<material name="LightGrey"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://nao_dcm_description/meshes/odroid.dae"  scale="${scale} ${scale} ${scale}"/>
+			</geometry>
+			<material name="LightGrey"/>
+		</collision>
+	</xacro:macro>
+
+	<!-- ODROID BAG JOINTS/LINKS -->
+	<joint name="torso-odroid" type="fixed">
+		<parent link="torso"/>
+		<child link="odroid_bag"/>
+		<origin xyz="-0.045 0 0.0575" rpy="0 0 0"/>
+	</joint>
+	<link name="odroid_bag">
+		<xacro:visuals_collisions_odroid_bag/>
+	</link>
+	<joint name="bag-odroid" type="fixed">
+		<parent link="odroid_bag"/>
+		<child link="odroid"/>
+		<origin xyz="-0.014 -0.0055 -0.0052" rpy="0 0 ${PI_2}" />
+	</joint>
+	<link name="odroid">
+		<xacro:visuals_collisions_odroid/>
+	</link>
+</robot>
