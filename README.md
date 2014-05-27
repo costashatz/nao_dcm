@@ -5,7 +5,7 @@
   - Goal is to **connect to the machine of Nao** and not the API provided by Aldebaran.
   - Ιt makes use only of the **DCM and Memory Proxies**.
   - Supports **V4.0 robots (H21 and H25 Body Types)**.
-  - **Written purely in C++** and uses the latest *C++ SDK (1.14.5)*.
+  - **Written purely in C++** and uses the *C++ SDK (1.14.5)*.
 
 
 Version
@@ -66,10 +66,10 @@ Notes/Limitations
 -----------------
 * **nao_dcm can be run locally**, *but you need to have built and installed ROS Hydro on Nao as nao_dcm requires ros_controls packages* (available only on >= Hydro). Yet, running **nao_dcm** driver remotely is identical in performance as running it locally (if the connection is strong and persistent - Wi-Fi usage is not recommended).
 * Tutorials will become available as soon as possible.
-* Integration with [nao_meshes] for better visual feedback is in progress.
+* Integration with [nao_meshes] for better visual feedback. You can disable it if you want a rough 3D model made of boxes and cylinders.
 * Although my intension is to provide ROS integration to the machine, basic gait and motion planning schemes are on the way for those that want quick results/feedback.
 * *Integration for LED, IR and Audio hardware is not available and is not on my agenda*. So, **feel free to contribute in that direction**.
-* **This is only ONE part of my Diploma Thesis** (*"Navigation of Humanoid Robots in Unknown Space With Dynamic Obstacles"*), so many parts of the code are not perfect and well-thought. E.g. *initialize* method of Nao class. So, **Pull-Requests for code improvement are welcomed.**
+* **This is only ONE part of my Diploma Thesis** (*"Navigation of Humanoid Robots in Unknown Space With Dynamic Obstacles"*), so many parts of the code are not perfect and well-thought. So, **PRs for code improvement are welcomed.**
 
 Origin of the Name
 ------------------
