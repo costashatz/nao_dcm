@@ -85,6 +85,7 @@
     <disable_collisions link1="LElbowDummy" link2="odroid" reason="Never" />
     <disable_collisions link1="LElbowDummy" link2="r_ankle" reason="Never" />
     <disable_collisions link1="LElbowDummy" link2="r_sole" reason="Never" />
+    <disable_collisions link1="LElbowDummy" link2="torso" reason="Never" />
     <disable_collisions link1="LHip" link2="LHipDummy" reason="Adjacent" />
     <disable_collisions link1="LHip" link2="LHipYaw" reason="Adjacent" />
     <disable_collisions link1="LHip" link2="LKnee" reason="Never" />
@@ -103,7 +104,6 @@
     <disable_collisions link1="LHip" link2="neck" reason="Never" />
     <disable_collisions link1="LHip" link2="odroid" reason="Never" />
     <disable_collisions link1="LHip" link2="odroid_bag" reason="Never" />
-    <disable_collisions link1="LHip" link2="r_sole" reason="Never" />
     <disable_collisions link1="LHipDummy" link2="LHipYaw" reason="Default" />
     <disable_collisions link1="LHipDummy" link2="LKnee" reason="Adjacent" />
     <disable_collisions link1="LHipDummy" link2="LShoulder" reason="Never" />
@@ -137,14 +137,17 @@
     <disable_collisions link1="LHipYaw" link2="odroid_bag" reason="Never" />
     <disable_collisions link1="LHipYaw" link2="torso" reason="Adjacent" />
     <disable_collisions link1="LKnee" link2="LShoulder" reason="Never" />
+    <disable_collisions link1="LKnee" link2="RElbowDummy" reason="Never" />
     <disable_collisions link1="LKnee" link2="RKnee" reason="Default" />
     <disable_collisions link1="LKnee" link2="RShoulder" reason="Never" />
     <disable_collisions link1="LKnee" link2="RShoulderDummy" reason="Never" />
+    <disable_collisions link1="LKnee" link2="gaze" reason="Never" />
     <disable_collisions link1="LKnee" link2="helmet" reason="Never" />
     <disable_collisions link1="LKnee" link2="l_ankle" reason="Adjacent" />
     <disable_collisions link1="LKnee" link2="neck" reason="Never" />
     <disable_collisions link1="LKnee" link2="odroid" reason="Never" />
     <disable_collisions link1="LKnee" link2="odroid_bag" reason="Never" />
+    <disable_collisions link1="LKnee" link2="l_sole" reason="Adjacent" />
     <disable_collisions link1="LShoulder" link2="LShoulderDummy" reason="Adjacent" />
     <disable_collisions link1="LShoulder" link2="RElbowDummy" reason="Never" />
     <disable_collisions link1="LShoulder" link2="RHip" reason="Never" />
@@ -173,20 +176,22 @@
     <disable_collisions link1="LShoulderDummy" link2="RShoulder" reason="Never" />
     <disable_collisions link1="LShoulderDummy" link2="RShoulderDummy" reason="Never" />
     <disable_collisions link1="LShoulderDummy" link2="gaze" reason="Default" />
-    <disable_collisions link1="LShoulderDummy" link2="l_ankle" reason="Never" />
     <disable_collisions link1="LShoulderDummy" link2="l_wrist" reason="Never" />
     <disable_collisions link1="LShoulderDummy" link2="neck" reason="Never" />
     <disable_collisions link1="LShoulderDummy" link2="odroid" reason="Never" />
     <disable_collisions link1="LShoulderDummy" link2="odroid_bag" reason="Never" />
     <disable_collisions link1="LShoulderDummy" link2="r_ankle" reason="Never" />
     <disable_collisions link1="LShoulderDummy" link2="r_sole" reason="Never" />
+    <disable_collisions link1="LShoulderDummy" link2="r_wrist" reason="Never" />
     <disable_collisions link1="LShoulderDummy" link2="torso" reason="Default" />
     <disable_collisions link1="RElbowDummy" link2="RShoulder" reason="Never" />
     <disable_collisions link1="RElbowDummy" link2="RShoulderDummy" reason="Adjacent" />
     <disable_collisions link1="RElbowDummy" link2="l_ankle" reason="Never" />
     <disable_collisions link1="RElbowDummy" link2="l_sole" reason="Never" />
     <disable_collisions link1="RElbowDummy" link2="neck" reason="Never" />
+    <disable_collisions link1="RElbowDummy" link2="odroid" reason="Never" />
     <disable_collisions link1="RElbowDummy" link2="r_wrist" reason="Adjacent" />
+    <disable_collisions link1="RElbowDummy" link2="torso" reason="Never" />
     <disable_collisions link1="RHip" link2="RHipDummy" reason="Adjacent" />
     <disable_collisions link1="RHip" link2="RHipYaw" reason="Adjacent" />
     <disable_collisions link1="RHip" link2="RKnee" reason="Never" />
@@ -224,10 +229,12 @@
     <disable_collisions link1="RKnee" link2="RShoulder" reason="Never" />
     <disable_collisions link1="RKnee" link2="gaze" reason="Never" />
     <disable_collisions link1="RKnee" link2="helmet" reason="Never" />
+    <disable_collisions link1="RKnee" link2="l_wrist" reason="Never" />
     <disable_collisions link1="RKnee" link2="neck" reason="Never" />
     <disable_collisions link1="RKnee" link2="odroid" reason="Never" />
     <disable_collisions link1="RKnee" link2="odroid_bag" reason="Never" />
     <disable_collisions link1="RKnee" link2="r_ankle" reason="Adjacent" />
+    <disable_collisions link1="RKnee" link2="r_sole" reason="Adjacent" />
     <disable_collisions link1="RShoulder" link2="RShoulderDummy" reason="Adjacent" />
     <disable_collisions link1="RShoulder" link2="helmet" reason="Never" />
     <disable_collisions link1="RShoulder" link2="l_ankle" reason="Never" />
@@ -241,7 +248,6 @@
     <disable_collisions link1="RShoulder" link2="torso" reason="Adjacent" />
     <disable_collisions link1="RShoulderDummy" link2="l_ankle" reason="Never" />
     <disable_collisions link1="RShoulderDummy" link2="l_sole" reason="Never" />
-    <disable_collisions link1="RShoulderDummy" link2="l_wrist" reason="Never" />
     <disable_collisions link1="RShoulderDummy" link2="neck" reason="Never" />
     <disable_collisions link1="RShoulderDummy" link2="odroid" reason="Never" />
     <disable_collisions link1="RShoulderDummy" link2="r_wrist" reason="Never" />
@@ -266,11 +272,14 @@
     <disable_collisions link1="l_ankle" link2="odroid" reason="Never" />
     <disable_collisions link1="l_ankle" link2="odroid_bag" reason="Never" />
     <disable_collisions link1="l_ankle" link2="r_wrist" reason="Never" />
+    <disable_collisions link1="l_ankle" link2="r_sole" reason="Never" />
     <disable_collisions link1="l_sole" link2="neck" reason="Never" />
     <disable_collisions link1="l_sole" link2="odroid" reason="Never" />
     <disable_collisions link1="l_sole" link2="odroid_bag" reason="Never" />
+    <disable_collisions link1="l_sole" link2="RKnee" reason="Adjacent" />
     <disable_collisions link1="l_wrist" link2="neck" reason="Never" />
     <disable_collisions link1="l_wrist" link2="r_ankle" reason="Never" />
+    <disable_collisions link1="l_wrist" link2="r_sole" reason="Never" />
     <disable_collisions link1="neck" link2="odroid" reason="Never" />
     <disable_collisions link1="neck" link2="odroid_bag" reason="Never" />
     <disable_collisions link1="neck" link2="r_ankle" reason="Never" />
@@ -286,5 +295,7 @@
     <disable_collisions link1="odroid_bag" link2="torso" reason="Adjacent" />
     <disable_collisions link1="r_ankle" link2="r_sole" reason="Adjacent" />
     <disable_collisions link1="r_ankle" link2="torso" reason="Never" />
+    <disable_collisions link1="r_ankle" link2="l_sole" reason="Never" />
     <disable_collisions link1="r_sole" link2="torso" reason="Never" />
+    <disable_collisions link1="r_sole" link2="LKnee" reason="Adjacent" />
 </robot>

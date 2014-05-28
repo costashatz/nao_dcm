@@ -20,7 +20,7 @@
     </material>
 
     <material name="LightGrey">
-    	<color rgba="0.8 0.8 0.8 1.0"/>
+    	<color rgba="0.6 0.6 0.6 1.0"/>
 	</material>
 
     <!-- END OF MATERIALS -->
