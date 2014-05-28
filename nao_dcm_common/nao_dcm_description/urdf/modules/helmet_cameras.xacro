@@ -69,7 +69,7 @@
     <!-- DUMMY VALUES - CHANGE TO THE ONES YOUR CAMERAS HAVE -->
     <gazebo reference="LeftCamera">
         <sensor type="camera" name="LeftCamera">
-            <update_rate>30.0</update_rate>
+            <update_rate>10.0</update_rate>
             <camera name="left_camera">
                 <horizontal_fov>1.06290551</horizontal_fov>
                 <image>
@@ -89,7 +89,7 @@
             </camera>
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
                 <alwaysOn>true</alwaysOn>
-                <updateRate>0.0</updateRate>
+                <updateRate>10.0</updateRate>
                 <cameraName>nao_dcm/CameraLeft</cameraName>
                 <imageTopicName>image_raw</imageTopicName>
                 <cameraInfoTopicName>camera_info</cameraInfoTopicName>
@@ -106,7 +106,7 @@
 
     <gazebo reference="RightCamera">
         <sensor type="camera" name="RightCamera">
-            <update_rate>30.0</update_rate>
+            <update_rate>10.0</update_rate>
             <camera name="right_camera">
                 <horizontal_fov>1.06290551</horizontal_fov>
                 <image>
@@ -126,7 +126,7 @@
             </camera>
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
                 <alwaysOn>true</alwaysOn>
-                <updateRate>0.0</updateRate>
+                <updateRate>10.0</updateRate>
                 <cameraName>nao_dcm/CameraRight</cameraName>
                 <imageTopicName>image_raw</imageTopicName>
                 <cameraInfoTopicName>camera_info</cameraInfoTopicName>
