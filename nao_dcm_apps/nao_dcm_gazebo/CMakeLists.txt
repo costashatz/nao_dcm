@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(nao_dcm_gazebo)
 
 ## Find catkin
-find_package(catkin REQUIRED COMPONENTS gazebo_ros)
+find_package(catkin REQUIRED COMPONENTS gazebo_ros gazebo_plugins)
 
 ##Needed for ros packages
 catkin_package()

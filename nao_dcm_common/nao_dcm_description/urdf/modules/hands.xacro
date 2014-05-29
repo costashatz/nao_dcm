@@ -1,6 +1,104 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+	<!-- Fingers -->
+	<xacro:macro name="Finger" params="side num side_small reflect">
+		<joint name="${side}Finger${num}" type="revolute">
+	    	<parent link="${side_small}_wrist"/>
+	    	<child link="${side}Finger${num}1"/>
+	    	<origin xyz="0.06907 ${reflect*0.01157} -0.00304" rpy="0 0 0"/>
+	    	<axis xyz="0 1 0"/>
+	    	<mimic joint="${side}Hand" multiplier="-${PI/4}" offset="${PI/4}"/>
+	    	<!-- Dummy values for mimic joint -->
+	    	<limit effort="10.0" lower="0.0" upper="${PI/4}" velocity="3.0"/>
+	    </joint>
+	    <link name="${side}Finger${num}1">
+	    	<xacro:visuals_collisions_phalax reflect="-1" side="${side}"/>
+	    	<inertial> <!-- dummy values for gazebo -->
+	            <mass value="0.2e-5" />
+	            <origin xyz="0 0 0"/>
+	            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+	        </inertial>
+	    </link>
+	    <joint name="${side}Finger${num}_1" type="revolute">
+	    	<parent link="${side}Finger${num}1"/>
+	    	<child link="${side}Finger${num}2"/>
+	    	<origin xyz="0.01436 0 0" rpy="0 0 0"/>
+	    	<axis xyz="0 1 0"/>
+	    	<mimic joint="${side}Hand" multiplier="-${PI/4}" offset="${PI/4}"/>
+	    	<!-- Dummy values for mimic joint -->
+	    	<limit effort="10.0" lower="0.0" upper="${PI/4}" velocity="3.0"/>
+	    </joint>
+	    <link name="${side}Finger${num}2">
+	    	<xacro:visuals_collisions_phalax reflect="-1" side="${side}"/>
+	    	<inertial> <!-- dummy values for gazebo -->
+	            <mass value="0.2e-5" />
+	            <origin xyz="0 0 0"/>
+	            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+	        </inertial>
+	    </link>
+	    <joint name="${side}Finger${num}_2" type="revolute">
+	    	<parent link="${side}Finger${num}2"/>
+	    	<child link="${side}Finger${num}3"/>
+	    	<origin xyz="0.01436 0 0" rpy="0 0 0"/>
+	    	<axis xyz="0 1 0"/>
+	    	<mimic joint="${side}Hand" multiplier="-${PI/4}" offset="${PI/4}"/>
+	    	<!-- Dummy values for mimic joint -->
+	    	<limit effort="10.0" lower="0.0" upper="${PI/4}" velocity="3.0"/>
+	    </joint>
+	    <link name="${side}Finger${num}3">
+	    	<xacro:visuals_collisions_phalax_end reflect="-1" side="${side}"/>
+	    	<inertial> <!-- dummy values for gazebo -->
+	            <mass value="0.2e-5" />
+	            <origin xyz="0 0 0"/>
+	            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+	        </inertial>
+	    </link>
+	</xacro:macro>
+	<xacro:Finger side="L" side_small="l" num="1" reflect="1"/>
+	<xacro:Finger side="L" side_small="l" num="2" reflect="-1"/>
+	<xacro:Finger side="R" side_small="r" num="1" reflect="1"/>
+	<xacro:Finger side="R" side_small="r" num="2" reflect="-1"/>
+	<!-- Thumbs -->
+	<xacro:macro name="Thumb" params="side side_small">
+		<joint name="${side}Thumb1_joint" type="revolute">
+	    	<parent link="${side_small}_wrist"/>
+	    	<child link="${side}Thumb1"/>
+	    	<origin xyz="0.04895 0 -0.02638" rpy="${PI} ${PI/4} 0"/>
+	    	<axis xyz="0 1 0"/>
+	    	<mimic joint="${side}Hand" multiplier="-${PI/4}" offset="${PI/4}"/>
+	    	<!-- Dummy values for mimic joint -->
+	    	<limit effort="10.0" lower="0.0" upper="${PI/4}" velocity="3.0"/>
+	    </joint>
+	    <link name="${side}Thumb1">
+	    	<xacro:visuals_collisions_phalax reflect="-1" side="${side}"/>
+	    	<inertial> <!-- dummy values for gazebo -->
+	            <mass value="0.2e-5" />
+	            <origin xyz="0 0 0"/>
+	            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+	        </inertial>
+	    </link>
+	    <joint name="${side}Thumb1_2" type="revolute">
+	    	<parent link="${side}Thumb1"/>
+	    	<child link="${side}Thumb2"/>
+	    	<origin xyz="0.01436 0 0" rpy="0 0 0"/>
+	    	<axis xyz="0 1 0"/>
+	    	<mimic joint="${side}Hand" multiplier="-${PI/4}" offset="${PI/4}"/>
+	    	<!-- Dummy values for mimic joint -->
+	    	<limit effort="10.0" lower="0.0" upper="${PI/4}" velocity="3.0"/>
+	    </joint>
+	    <link name="${side}Thumb2">
+	    	<xacro:visuals_collisions_phalax_end reflect="-1" side="${side}"/>
+	    	<inertial> <!-- dummy values for gazebo -->
+	            <mass value="0.2e-5" />
+	            <origin xyz="0 0 0"/>
+	            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+	        </inertial>
+	    </link>
+	</xacro:macro>
+	<xacro:Thumb side="L" side_small="l"/>
+	<xacro:Thumb side="R" side_small="r"/>
+
 	<!-- H25 Hands -->
 	<xacro:if value="${H25}">
 	    <joint name="LWristYaw" type="revolute">
@@ -91,6 +189,36 @@
 	            <origin rpy="0 0 0" xyz="0.06530 0.00114 0.00051"/>
 	            <mass value="0.18415"/>
 	            <inertia ixx="0.00007810423" ixy="-0.00001233383" ixz="0.00000744169" iyy="0.00112084378" iyz="-0.00000054551" izz="0.00112214306"/>
+	        </inertial>
+	    </link>
+
+	    <!-- DUMMY REVOLUTE JOINT FOR NON MOTORED HAND -->
+	    <joint name="LHand" type="revolute">
+	        <parent link="l_wrist"/>
+	        <child link="l_gripper"/>
+	        <origin rpy="0 0 0" xyz="0.05775 0 0"/>
+	        <limit effort="10.0" lower="0.0" upper="0.0" velocity="3.0"/>
+	    </joint>
+	    <link name="l_gripper">
+	        <inertial> <!-- dummy values for gazebo -->
+	            <mass value="0.2e-5" />
+	            <origin xyz="0 0 0"/>
+	            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
+	        </inertial>
+	    </link>
+
+	    <!-- DUMMY REVOLUTE JOINT FOR NON MOTORED HAND -->
+	    <joint name="RHand" type="revolute">
+	        <parent link="r_wrist"/>
+	        <child link="r_gripper"/>
+	        <origin rpy="0 0 0" xyz="0.05775 0 0"/>
+	        <limit effort="10.0" lower="0.0" upper="0.0" velocity="3.0"/>
+	    </joint>
+	    <link name="r_gripper">
+	        <inertial> <!-- dummy values for gazebo -->
+	            <mass value="0.2e-5" />
+	            <origin xyz="0 0 0"/>
+	            <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
 	        </inertial>
 	    </link>
 	</xacro:unless>

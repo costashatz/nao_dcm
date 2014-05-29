@@ -2,43 +2,10 @@
 <robot name="nao_robot_v4_H21" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 	<!-- XACRO PROPERTIES -->
-	<xacro:property name="PI" value="3.14159265359" />
-	<xacro:property name="PI_2" value="1.57079632679" />
-	<xacro:property name="scale" value="0.001" />
 	<xacro:property name="H25" value="false" />
-	<xacro:property name="nao_meshes" value="true" />
-	<xacro:property name="use_helmet" value="true" />
-	<xacro:property name="helmet_cameras_viz" value="false" />
-	<xacro:property name="use_odroid" value="true" />
-	<xacro:property name="use_hector_imu" value="false" />
 
-	<xacro:if value="${use_hector_imu}">
-		<xacro:property name="imu_plugin" value="libhector_gazebo_ros_imu.so" />
-	</xacro:if>
-	<xacro:unless value="${use_hector_imu}">
-		<xacro:property name="imu_plugin" value="libgazebo_ros_imu.so" />
-	</xacro:unless>
-
-	<xacro:include filename="$(find nao_dcm_description)/urdf/nao_dcm_visuals_collisions.xacro" />
-	<xacro:include filename="$(find nao_dcm_description)/urdf/nao_dcm_gazebo.xacro" />
 	<xacro:include filename="$(find nao_dcm_description)/urdf/nao_dcm_H21_control.xacro" />
 
-	<xacro:include filename="$(find nao_dcm_description)/urdf/modules/torso.xacro" />
-	<xacro:include filename="$(find nao_dcm_description)/urdf/modules/head.xacro" />
-	<xacro:include filename="$(find nao_dcm_description)/urdf/modules/arms.xacro" />
-	<xacro:include filename="$(find nao_dcm_description)/urdf/modules/hands.xacro" />
-	<xacro:include filename="$(find nao_dcm_description)/urdf/modules/legs.xacro" />
-	<xacro:include filename="$(find nao_dcm_description)/urdf/modules/imu.xacro" />
-	<xacro:include filename="$(find nao_dcm_description)/urdf/modules/sonars.xacro" />
-	<xacro:include filename="$(find nao_dcm_description)/urdf/modules/cameras.xacro" />
-
-	<xacro:if value="${use_helmet}">
-		<xacro:include filename="$(find nao_dcm_description)/urdf/modules/helmet.xacro" />
-		<xacro:include filename="$(find nao_dcm_description)/urdf/modules/helmet_cameras.xacro" />
-	</xacro:if>
-
-	<xacro:if value="${use_odroid}">
-		<xacro:include filename="$(find nao_dcm_description)/urdf/modules/odroid_bag.xacro" />
-	</xacro:if>
+	<xacro:include filename="$(find nao_dcm_description)/urdf/modules/robot.xacro" />
 
 </robot>

@@ -252,6 +252,74 @@
 		</xacro:if>
     </xacro:macro>
 
+    <xacro:macro name="visuals_collisions_phalax" params="side reflect">
+    	<xacro:unless value="${nao_meshes}">
+			<visual>
+				<origin xyz="0.000718 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+	            <geometry>
+	                <box size="0.01 0.01 0.01436"/>
+	            </geometry>
+				<material name="Yellow"/>
+			</visual>
+			<collision>
+				<origin xyz="0.000718 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+	            <geometry>
+	                <box size="0.01 0.01 0.01436"/>
+	            </geometry>
+			</collision>
+		</xacro:unless>
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="-${PI_2} -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/Phalax.dae"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/Phalax.dae"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
+    </xacro:macro>
+
+    <xacro:macro name="visuals_collisions_phalax_end" params="side reflect">
+    	<xacro:unless value="${nao_meshes}">
+			<visual>
+				<origin xyz="0.000718 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+	            <geometry>
+	                <box size="0.01 0.01 0.01436"/>
+	            </geometry>
+				<material name="Yellow"/>
+			</visual>
+			<collision>
+				<origin xyz="0.000718 0 0" rpy="${PI_2} 0 ${PI_2}"/>
+	            <geometry>
+	                <box size="0.01 0.01 0.01436"/>
+	            </geometry>
+			</collision>
+		</xacro:unless>
+		<xacro:if value="${nao_meshes}">
+			<visual>
+				<origin xyz="0 0 0" rpy="-${PI_2} -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/visual/PhalaxEnd.dae"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</visual>
+			<collision>
+				<origin xyz="0 0 0" rpy="0 -0 0"/>
+				<geometry>
+					<mesh filename="package://nao_meshes/meshes/V40/collision/PhalaxEnd.dae"  scale="${scale} ${scale} ${scale}"/>
+				</geometry>
+				<material name="LightGrey"/>
+			</collision>
+		</xacro:if>
+    </xacro:macro>
+
     <xacro:macro name="visuals_collisions_hip_yaw_pitch" params="side reflect">
     	<xacro:if value="${nao_meshes}">
 			<visual>

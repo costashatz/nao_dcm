@@ -1,5 +1,42 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- MACROS FOR MIMIC JOINTS -->
+    <!-- Fingers -->
+    <xacro:macro name="FingerMimics" params="side num">
+        <plugin name="mimic_${side}Finger${num}" filename="libgazebo_mimic_joint_plugin.so">
+            <joint>${side}Hand</joint>
+            <mimicJoint>${side}Finger${num}</mimicJoint>
+            <multiplier>-${PI/4}</multiplier>
+            <offset>${PI/4}</offset>
+        </plugin>
+        <plugin name="mimic_${side}Finger${num}_1" filename="libgazebo_mimic_joint_plugin.so">
+            <joint>${side}Hand</joint>
+            <mimicJoint>${side}Finger${num}_1</mimicJoint>
+            <multiplier>-${PI/4}</multiplier>
+            <offset>${PI/4}</offset>
+        </plugin>
+        <plugin name="mimic_${side}Finger${num}_2" filename="libgazebo_mimic_joint_plugin.so">
+            <joint>${side}Hand</joint>
+            <mimicJoint>${side}Finger${num}_2</mimicJoint>
+            <multiplier>-${PI/4}</multiplier>
+            <offset>${PI/4}</offset>
+        </plugin>
+    </xacro:macro>
+    <!-- Thumbs -->
+    <xacro:macro name="ThumbMimics" params="side">
+        <plugin name="${side}Thumb1_joint" filename="libgazebo_mimic_joint_plugin.so">
+            <joint>${side}Hand</joint>
+            <mimicJoint>${side}Thumb1_joint</mimicJoint>
+            <multiplier>-${PI/4}</multiplier>
+            <offset>${PI/4}</offset>
+        </plugin>
+        <plugin name="${side}Thumb1_2" filename="libgazebo_mimic_joint_plugin.so">
+            <joint>${side}Hand</joint>
+            <mimicJoint>${side}Thumb1_2</mimicJoint>
+            <multiplier>-${PI/4}</multiplier>
+            <offset>${PI/4}</offset>
+        </plugin>
+    </xacro:macro>
     <!-- GAZEBO ROS CONTROL AND IMU PLUGIN -->
     <gazebo>
         <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
@@ -20,6 +57,21 @@
             <updateRate>30.0</updateRate>
             <alwaysOn>true</alwaysOn>
         </plugin>
+        <!-- Mimic joints through plugin develop by costashatz based on implementation by Goncalo Cabrita -->
+        <plugin name="mimic_hipyawpitch" filename="libgazebo_mimic_joint_plugin.so">
+            <joint>LHipYawPitch</joint>
+            <mimicJoint>RHipYawPitch</mimicJoint>
+            <multiplier>1.0</multiplier>
+            <offset>0.0</offset>
+        </plugin>
+
+        <xacro:FingerMimics side="L" num="1"/>
+        <xacro:FingerMimics side="L" num="2"/>
+        <xacro:FingerMimics side="R" num="1"/>
+        <xacro:FingerMimics side="R" num="2"/>
+
+        <xacro:ThumbMimics side="L"/>
+        <xacro:ThumbMimics side="R"/>
     </gazebo>
     <!-- END OF GAZEBO ROS CONTROL PLUGIN -->
     <!-- GAZEBO MATERIALS -->
@@ -84,6 +136,62 @@
         <selfCollide>false</selfCollide>
         <turnGravityOff>false</turnGravityOff>
     </gazebo>
+    <gazebo reference="LFinger11">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LFinger12">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LFinger13">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LFinger21">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LFinger22">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LFinger23">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LThumb1">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="LThumb2">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
     <gazebo reference="l_gripper">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
@@ -111,6 +219,62 @@
         <turnGravityOff>false</turnGravityOff>
     </gazebo>
     <gazebo reference="r_wrist">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RFinger11">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RFinger12">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RFinger13">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RFinger21">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RFinger22">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RFinger23">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RThumb1">
+        <material>Gazebo/Yellow</material>
+        <mu1>0.5</mu1>
+        <mu2>0.5</mu2>
+        <selfCollide>false</selfCollide>
+        <turnGravityOff>false</turnGravityOff>
+    </gazebo>
+    <gazebo reference="RThumb2">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
