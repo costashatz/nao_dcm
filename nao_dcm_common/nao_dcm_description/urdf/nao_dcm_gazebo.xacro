@@ -141,63 +141,63 @@
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="LFinger12">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="LFinger13">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="LFinger21">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="LFinger22">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="LFinger23">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="LThumb1">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="LThumb2">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="l_gripper">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="RShoulder">
         <mu1>0.5</mu1>
@@ -230,63 +230,63 @@
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="RFinger12">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="RFinger13">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="RFinger21">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="RFinger22">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="RFinger23">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="RThumb1">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="RThumb2">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="r_gripper">
         <material>Gazebo/Yellow</material>
         <mu1>0.5</mu1>
         <mu2>0.5</mu2>
         <selfCollide>false</selfCollide>
-        <turnGravityOff>false</turnGravityOff>
+        <turnGravityOff>true</turnGravityOff>
     </gazebo>
     <gazebo reference="LHipYaw">
         <material>Gazebo/Green</material>

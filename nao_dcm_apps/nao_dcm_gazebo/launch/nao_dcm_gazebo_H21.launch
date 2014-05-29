@@ -8,7 +8,13 @@
     <arg name="paused" value="true"/>
     <!-- more default parameters can be changed here -->
   </include>
-  <rosparam file="$(find nao_dcm_gazebo)/config/gazebo_ros_control_params.yaml" command="load"/>
+
+  <!-- Use PIDs?? -->
+  <arg name="use_pid" value="false"/>
+
+  <group if="$(arg use_pid)">
+    <rosparam file="$(find nao_dcm_gazebo)/config/gazebo_ros_control_params.yaml" command="load"/>
+  </group>
 
   <!-- Call Nao Robot Trajectory Controller -->
   <include file="$(find nao_dcm_control)/launch/nao_dcm_trajectory_control_H21.launch"/>
