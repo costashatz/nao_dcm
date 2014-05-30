@@ -66,7 +66,7 @@ Notes/Limitations
 -----------------
 * **nao_dcm can be run locally**, *but you need to have built and installed ROS Hydro on Nao as nao_dcm requires ros_controls packages* (available only on >= Hydro). Yet, running **nao_dcm** driver remotely is identical in performance as running it locally (if the connection is strong and persistent - Wi-Fi usage is not recommended).
 * Tutorials will become available as soon as possible.
-* Integration with [nao_meshes] for better visual feedback. You can disable it if you want a rough 3D model made of boxes and cylinders.
+* Integration with [nao_meshes] for better visual feedback. You can disable it if you want a rough 3D model made of boxes and cylinders. **NOTE**: *You need to convert the .obj and the .ply 3D objects to the collada format (in the same folder).*
 * Although my intension is to provide ROS integration to the machine, basic gait and motion planning schemes are on the way for those that want quick results/feedback.
 * *Integration for LED, IR and Audio hardware is not available and is not on my agenda*. So, **feel free to contribute in that direction**.
 * **This is only ONE part of my Diploma Thesis** (*"Navigation of Humanoid Robots in Unknown Space With Dynamic Obstacles"*), so many parts of the code are not perfect and well-thought. So, **PRs for code improvement are welcomed.**

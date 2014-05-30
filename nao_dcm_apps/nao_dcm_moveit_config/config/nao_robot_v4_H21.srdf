@@ -70,6 +70,22 @@
     <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
     <passive_joint name="virtual_joint" />
     <passive_joint name="RHipYawPitch" />
+    <passive_joint name="LFinger1" />
+    <passive_joint name="LFinger1_1" />
+    <passive_joint name="LFinger1_2" />
+    <passive_joint name="LFinger2" />
+    <passive_joint name="LFinger2_1" />
+    <passive_joint name="LFinger2_2" />
+    <passive_joint name="LThumb1_joint" />
+    <passive_joint name="LThumb1_2" />
+    <passive_joint name="RFinger1" />
+    <passive_joint name="RFinger1_1" />
+    <passive_joint name="RFinger1_2" />
+    <passive_joint name="RFinger2" />
+    <passive_joint name="RFinger2_1" />
+    <passive_joint name="RFinger2_2" />
+    <passive_joint name="RThumb1_joint" />
+    <passive_joint name="RThumb1_2" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="LElbowDummy" link2="LFinger11" reason="Never" />
     <disable_collisions link1="LElbowDummy" link2="LFinger12" reason="Never" />
