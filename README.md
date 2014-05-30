@@ -62,6 +62,23 @@ roslaunch nao_dcm_gazebo nao_dcm_gazebo_{BodyType}.launch
 
 This will **launch Gazebo Simulator** and **trajectory controllers** to simulate the real robot. *This is somewhat equivalent as bringing up nao_dcm_driver (remotely)*. Thus, then for example you can use MoveIt Demo to give trajectories to Nao to execute.
 
+Basic Options/Guidelines
+--------------
+
+###URDF/XACRO properties
+
+All properties are located in [robot.xacro] file.
+
+* **nao_meshes** - true/false => Choose whether to use nao_meshes 3D Objects or not
+* **use_helmet** - true/false => Choose whether to mount on Nao the Helmet (along with 2 cameras)
+* **helmet_cameras_viz** - true/false => Choose whether to visualize the cameras on Helmet
+* **use_odroid** - true/false => Choose whether to mount Odroid Bag on Nao
+* **use_hector_imu** - true/false => Choose whether to use hector_imu_plugin or the default by Gazebo for IMU simulation
+
+###nao_meshes Integration
+
+Download [nao_meshes] repo, generate the meshes (it creates .obj for visual and .ply for collisions) and convert them to collada (.dae) in the same folders with Blender or Meshlab (do not change any orientation [visual components are rotated] - export only the parts and not the whole scene). No \*\_dcm\_\* is needed for the nao\_meshes. For quick results you can always fall-back to boxes and cylinders (simple change to false the xacro property {nao_meshes} at this file). All packages work the same with or without nao_meshes.
+
 Notes/Limitations
 -----------------
 * **nao_dcm can be run locally**, *but you need to have built and installed ROS Hydro on Nao as nao_dcm requires ros_controls packages* (available only on >= Hydro). Yet, running **nao_dcm** driver remotely is identical in performance as running it locally (if the connection is strong and persistent - Wi-Fi usage is not recommended).
@@ -93,4 +110,4 @@ Copyright (c) 2014, **Konstantinos Chatzilygeroudis**
 [nao_meshes]: https://github.com/vrabaud/nao_meshes
 [ros control]: http://wiki.ros.org/ros_control
 [gazebo_plugins]: http://www.github.com/costashatz/gazebo_plugins
-    
+[robot.xacro]: https://github.com/costashatz/nao_dcm/blob/master/nao_dcm_common/nao_dcm_description/urdf/modules/robot.xacro
