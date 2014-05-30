@@ -7,7 +7,7 @@
 		<actuator name="HeadYaw_Motor">
 			<!-- Dummy Values -->
 			<hardwareInterface>PositionJointInterface</hardwareInterface>
-			<mechanicalReduction>150.27</mechanicalReduction>
+			<mechanicalReduction>${speed_red_type3A}</mechanicalReduction>
 		</actuator>
 	</transmission>
 	<transmission name="HeadPitch_Transmission">
@@ -16,7 +16,7 @@
 		<actuator name="HeadPitch_Motor">
 			<!-- Dummy Values -->
 			<hardwareInterface>PositionJointInterface</hardwareInterface>
-			<mechanicalReduction>173.22</mechanicalReduction>
+			<mechanicalReduction>${speed_red_type3B}</mechanicalReduction>
 		</actuator>
 	</transmission>
 	<!-- ARMS -->
@@ -28,7 +28,7 @@
 			<actuator name="${side}ShoulderPitch_Motor">
 				<!-- Dummy Values -->
 				<hardwareInterface>PositionJointInterface</hardwareInterface>
-				<mechanicalReduction>150.27</mechanicalReduction>
+				<mechanicalReduction>${speed_red_type3A}</mechanicalReduction>
 			</actuator>
 		</transmission>
 		<transmission name="${side}ElbowYaw_Transmission">
@@ -37,7 +37,7 @@
 			<actuator name="${side}ElbowYaw_Motor">
 				<!-- Dummy Values -->
 				<hardwareInterface>PositionJointInterface</hardwareInterface>
-				<mechanicalReduction>150.27</mechanicalReduction>
+				<mechanicalReduction>${speed_red_type3A}</mechanicalReduction>
 			</actuator>
 		</transmission>
 		<transmission name="${side}ShoulderRoll_Transmission">
@@ -46,7 +46,7 @@
 			<actuator name="${side}ShoulderRoll_Motor">
 				<!-- Dummy Values -->
 				<hardwareInterface>PositionJointInterface</hardwareInterface>
-				<mechanicalReduction>173.22</mechanicalReduction>
+				<mechanicalReduction>${speed_red_type3B}</mechanicalReduction>
 			</actuator>
 		</transmission>
 		<transmission name="${side}ElbowRoll_Transmission">
@@ -55,7 +55,7 @@
 			<actuator name="${side}ElbowRoll_Motor">
 				<!-- Dummy Values -->
 				<hardwareInterface>PositionJointInterface</hardwareInterface>
-				<mechanicalReduction>173.22</mechanicalReduction>
+				<mechanicalReduction>${speed_red_type3B}</mechanicalReduction>
 			</actuator>
 		</transmission>
 	</xacro:macro>
@@ -70,7 +70,7 @@
 			<actuator name="${side}HipYawPitch_Motor">
 				<!-- Dummy Values -->
 				<hardwareInterface>PositionJointInterface</hardwareInterface>
-				<mechanicalReduction>201.3</mechanicalReduction>
+				<mechanicalReduction>${speed_red_type1A}</mechanicalReduction>
 			</actuator>
 		</transmission>
 		<transmission name="${side}HipRoll_Transmission">
@@ -79,7 +79,7 @@
 			<actuator name="${side}HipRoll_Motor">
 				<!-- Dummy Values -->
 				<hardwareInterface>PositionJointInterface</hardwareInterface>
-				<mechanicalReduction>201.3</mechanicalReduction>
+				<mechanicalReduction>${speed_red_type1A}</mechanicalReduction>
 			</actuator>
 		</transmission>
 		<transmission name="${side}HipPitch_Transmission">
@@ -88,7 +88,7 @@
 			<actuator name="${side}HipPitch_Motor">
 				<!-- Dummy Values -->
 				<hardwareInterface>PositionJointInterface</hardwareInterface>
-				<mechanicalReduction>130.85</mechanicalReduction>
+				<mechanicalReduction>${speed_red_type1B}</mechanicalReduction>
 			</actuator>
 		</transmission>
 		<transmission name="${side}KneePitch_Transmission">
@@ -97,7 +97,7 @@
 			<actuator name="${side}KneePitch_Motor">
 				<!-- Dummy Values -->
 				<hardwareInterface>PositionJointInterface</hardwareInterface>
-				<mechanicalReduction>130.85</mechanicalReduction>
+				<mechanicalReduction>${speed_red_type1B}</mechanicalReduction>
 			</actuator>
 		</transmission>
 		<transmission name="${side}AnklePitch_Transmission">
@@ -106,7 +106,7 @@
 			<actuator name="${side}AnklePitch_Motor">
 				<!-- Dummy Values -->
 				<hardwareInterface>PositionJointInterface</hardwareInterface>
-				<mechanicalReduction>130.85</mechanicalReduction>
+				<mechanicalReduction>${speed_red_type1B}</mechanicalReduction>
 			</actuator>
 		</transmission>
 		<transmission name="${side}AnkleRoll_Transmission">
@@ -115,7 +115,7 @@
 			<actuator name="${side}AnkleRoll_Motor">
 				<!-- Dummy Values -->
 				<hardwareInterface>PositionJointInterface</hardwareInterface>
-				<mechanicalReduction>201.3</mechanicalReduction>
+				<mechanicalReduction>${speed_red_type1A}</mechanicalReduction>
 			</actuator>
 		</transmission>
 	</xacro:macro>

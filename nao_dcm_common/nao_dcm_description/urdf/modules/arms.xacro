@@ -43,7 +43,7 @@
         <joint name="${side}ShoulderPitch" type="revolute">
             <parent link="torso"/>
             <child link="${side}Shoulder"/>
-            <limit effort="${150.27*14.3/1000.0}" lower="-2.0857" upper="2.0857" velocity="3.0"/>
+            <limit effort="${effort_type3*speed_red_type3A}" lower="-2.0857" upper="2.0857" velocity="3.0"/>
             <origin rpy="0 0 0" xyz="0 ${reflect*0.098} 0.1"/>
             <axis xyz="0 1 0"/>
         </joint>
@@ -59,7 +59,7 @@
         <joint name="${side}ElbowYaw" type="revolute">
             <parent link="${side}ShoulderDummy"/>
             <child link="${side}Elbow"/>
-            <limit effort="${150.27*14.3/1000.0}" lower="-2.0857" upper="2.0857" velocity="3.0"/>
+            <limit effort="${effort_type3*speed_red_type3A}" lower="-2.0857" upper="2.0857" velocity="3.0"/>
             <origin rpy="0 0 0" xyz="0.105 ${reflect*0.015} 0"/>
             <axis xyz="1 0 0"/>
         </joint>
@@ -78,28 +78,28 @@
     <joint name="LShoulderRoll" type="revolute">
         <parent link="LShoulder"/>
         <child link="LShoulderDummy"/>
-        <limit effort="${173.22*14.3/1000.0}" lower="-0.3142" upper="1.3265" velocity="3.0"/>
+        <limit effort="${effort_type3*speed_red_type3B}" lower="-0.3142" upper="1.3265" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>
     <joint name="RShoulderRoll" type="revolute">
         <parent link="RShoulder"/>
         <child link="RShoulderDummy"/>
-        <limit effort="${173.22*14.3/1000.0}" lower="-1.3265" upper="0.3142" velocity="3.0"/>
+        <limit effort="${effort_type3*speed_red_type3B}" lower="-1.3265" upper="0.3142" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>
     <joint name="LElbowRoll" type="revolute">
         <parent link="LElbow"/>
         <child link="LElbowDummy"/>
-        <limit effort="${173.22*14.3/1000.0}" lower="-1.5446" upper="-0.0349" velocity="3.0"/>
+        <limit effort="${effort_type3*speed_red_type3B}" lower="-1.5446" upper="-0.0349" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>
     <joint name="RElbowRoll" type="revolute">
         <parent link="RElbow"/>
         <child link="RElbowDummy"/>
-        <limit effort="${173.22*14.3/1000.0}" lower="0.0349" upper="1.5446" velocity="3.0"/>
+        <limit effort="${effort_type3*speed_red_type3B}" lower="0.0349" upper="1.5446" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>

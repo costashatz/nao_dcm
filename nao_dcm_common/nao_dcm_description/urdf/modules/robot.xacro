@@ -10,6 +10,15 @@
 	<xacro:property name="helmet_cameras_viz" value="false" />
 	<xacro:property name="use_odroid" value="true" />
 	<xacro:property name="use_hector_imu" value="false" />
+	<xacro:property name="effort_type1" value="0.0161" />
+	<xacro:property name="effort_type2" value="0.0049" />
+	<xacro:property name="effort_type3" value="0.0062" />
+	<xacro:property name="speed_red_type1A" value="201.3" />
+	<xacro:property name="speed_red_type1B" value="130.85" />
+	<xacro:property name="speed_red_type2A" value="50.61" />
+	<xacro:property name="speed_red_type2B" value="36.24" />
+	<xacro:property name="speed_red_type3A" value="150.27" />
+	<xacro:property name="speed_red_type3B" value="173.22" />
 
 	<!-- Which IMU plugin to use (hector or default) -->
 	<xacro:if value="${use_hector_imu}">

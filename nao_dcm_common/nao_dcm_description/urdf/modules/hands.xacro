@@ -105,7 +105,7 @@
 	        <parent link="LElbowDummy"/>
 	        <child link="l_wrist"/>
 	        <origin rpy="0 0 0" xyz="0.05595 0 0"/>
-	        <limit effort="${50.61*9.4/1000.0}" lower="-1.8238" upper="1.8238" velocity="3.0"/>
+	        <limit effort="${effort_type2*speed_red_type2A}" lower="-1.8238" upper="1.8238" velocity="3.0"/>
 	    </joint>
 	    <link name="l_wrist">
 	        <xacro:visuals_collisions_wrist_yaw reflect="1" side="L"/>
@@ -121,7 +121,7 @@
 	        <parent link="l_wrist"/>
 	        <child link="l_gripper"/>
 	        <origin rpy="0 0 0" xyz="0.05775 0 0"/>
-	        <limit effort="${36.24*9.4/1000.0}" lower="0.0" upper="1.0" velocity="3.0"/>
+	        <limit effort="${effort_type2*speed_red_type2B}" lower="0.0" upper="1.0" velocity="3.0"/>
 	    </joint>
 	    <link name="l_gripper">
 	        <inertial> <!-- dummy values for gazebo -->
@@ -134,7 +134,7 @@
 	        <parent link="RElbowDummy"/>
 	        <child link="r_wrist"/>
 	        <origin rpy="0 0 0" xyz="0.05595 0 0"/>
-	        <limit effort="${50.61*9.4/1000.0}" lower="-1.8238" upper="1.8238" velocity="3.0"/>
+	        <limit effort="${effort_type2*speed_red_type2A}" lower="-1.8238" upper="1.8238" velocity="3.0"/>
 	    </joint>
 	    <link name="r_wrist">
 	        <xacro:visuals_collisions_wrist_yaw reflect="-1" side="R"/>
@@ -150,7 +150,7 @@
 	        <parent link="r_wrist"/>
 	        <child link="r_gripper"/>
 	        <origin rpy="0 0 0" xyz="0.05775 0 0"/>
-	        <limit effort="${36.24*9.4/1000.0}" lower="0.0" upper="1.0" velocity="3.0"/>
+	        <limit effort="${effort_type2*speed_red_type2B}" lower="0.0" upper="1.0" velocity="3.0"/>
 	    </joint>
 	    <link name="r_gripper">
 	        <inertial> <!-- dummy values for gazebo -->

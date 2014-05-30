@@ -4,7 +4,7 @@
     <joint name="HeadYaw" type="revolute">
         <parent link="torso"/>
         <child link="neck"/>
-        <limit effort="${150.27*14.3/1000.0}" lower="-2.0857" upper="2.0857" velocity="3.0"/>
+        <limit effort="${effort_type3*speed_red_type3A}" lower="-2.0857" upper="2.0857" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0.1265"/>
         <axis xyz="0 0 1"/>
     </joint>
@@ -21,7 +21,7 @@
     <joint name="HeadPitch" type="revolute">
         <parent link="neck"/>
         <child link="gaze"/>
-        <limit effort="${173.22*14.3/1000.0}" lower="-0.6720" upper="0.5149" velocity="3.0"/>
+        <limit effort="${effort_type3*speed_red_type3B}" lower="-0.6720" upper="0.5149" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>

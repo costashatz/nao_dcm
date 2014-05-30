@@ -4,7 +4,7 @@
     <joint name="LHipYawPitch" type="revolute">
         <parent link="base_link"/>
         <child link="LHipYaw"/>
-        <limit effort="${201.3*68/1000.0}" lower="-1.145303" upper="0.740810" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1A}" lower="-1.145303" upper="0.740810" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0.05 -0.085"/>
         <axis xyz="0 0.707106 -0.707106"/>
     </joint>
@@ -20,7 +20,7 @@
     <joint name="LHipRoll" type="revolute">
         <parent link="LHipYaw"/>
         <child link="LHip"/>
-        <limit effort="${201.3*68/1000.0}" lower="-0.379472" upper="0.790477" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1A}" lower="-0.379472" upper="0.790477" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
     </joint>
@@ -36,7 +36,7 @@
     <joint name="LHipPitch" type="revolute">
         <parent link="LHip"/>
         <child link="LHipDummy"/>
-        <limit effort="${130.85*68/1000.0}" lower="-1.535889" upper="0.484090" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1B}" lower="-1.535889" upper="0.484090" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
@@ -52,7 +52,7 @@
     <joint name="LKneePitch" type="revolute">
         <parent link="LHipDummy"/>
         <child link="LKnee"/>
-        <limit effort="${130.85*68/1000.0}" lower="-0.092346" upper="2.112528" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1B}" lower="-0.092346" upper="2.112528" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 -0.1"/>
         <axis xyz="0 1 0"/>
     </joint>
@@ -68,7 +68,7 @@
     <joint name="LAnklePitch" type="revolute">
         <parent link="LKnee"/>
         <child link="l_ankle"/>
-        <limit effort="${130.85*68/1000.0}" lower="-1.189516" upper="0.922747" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1B}" lower="-1.189516" upper="0.922747" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 -0.1029"/>
         <axis xyz="0 1 0"/>
     </joint>
@@ -84,7 +84,7 @@
     <joint name="LAnkleRoll" type="revolute">
         <parent link="l_ankle"/>
         <child link="l_sole"/>
-        <limit effort="${201.3*68/1000.0}" lower="-0.397880" upper="0.769001" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1A}" lower="-0.397880" upper="0.769001" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
     </joint>
@@ -101,7 +101,7 @@
     <joint name="RHipYawPitch" type="revolute">
         <parent link="base_link"/>
         <child link="RHipYaw"/>
-        <limit effort="${201.3*68/1000.0}" lower="-1.145303" upper="0.740810" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1A}" lower="-1.145303" upper="0.740810" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 -0.05 -0.085"/>
         <axis xyz="0 0.707106 0.707106"/>
         <mimic joint="LHipYawPitch" multiplier="1" offset="0"/>
@@ -118,7 +118,7 @@
     <joint name="RHipRoll" type="revolute">
         <parent link="RHipYaw"/>
         <child link="RHip"/>
-        <limit effort="${201.3*68/1000.0}" lower="-0.790477" upper="0.379472" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1A}" lower="-0.790477" upper="0.379472" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
     </joint>
@@ -134,7 +134,7 @@
     <joint name="RHipPitch" type="revolute">
         <parent link="RHip"/>
         <child link="RHipDummy"/>
-        <limit effort="${130.85*68/1000.0}" lower="-1.535889" upper="0.484090" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1B}" lower="-1.535889" upper="0.484090" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="0 1 0"/>
     </joint>
@@ -150,7 +150,7 @@
     <joint name="RKneePitch" type="revolute">
         <parent link="RHipDummy"/>
         <child link="RKnee"/>
-        <limit effort="${130.85*68/1000.0}" lower="-0.103083" upper="2.120198" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1B}" lower="-0.103083" upper="2.120198" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 -0.1"/>
         <axis xyz="0 1 0"/>
     </joint>
@@ -166,7 +166,7 @@
     <joint name="RAnklePitch" type="revolute">
         <parent link="RKnee"/>
         <child link="r_ankle"/>
-        <limit effort="${130.85*68/1000.0}" lower="-1.186448" upper="0.932056" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1B}" lower="-1.186448" upper="0.932056" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 -0.1029"/>
         <axis xyz="0 1 0"/>
     </joint>
@@ -182,7 +182,7 @@
     <joint name="RAnkleRoll" type="revolute">
         <parent link="r_ankle"/>
         <child link="r_sole"/>
-        <limit effort="${201.3*68/1000.0}" lower="-0.768992" upper="0.397935" velocity="3.0"/>
+        <limit effort="${effort_type1*speed_red_type1A}" lower="-0.768992" upper="0.397935" velocity="3.0"/>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <axis xyz="1 0 0"/>
     </joint>

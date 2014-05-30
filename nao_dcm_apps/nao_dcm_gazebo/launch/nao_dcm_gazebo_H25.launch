@@ -10,7 +10,7 @@
   </include>
 
   <!-- Use PIDs?? -->
-  <arg name="use_pid" value="false"/>
+  <arg name="use_pid" value="true"/>
 
   <group if="$(arg use_pid)">
     <rosparam file="$(find nao_dcm_gazebo)/config/gazebo_ros_control_params.yaml" command="load"/>

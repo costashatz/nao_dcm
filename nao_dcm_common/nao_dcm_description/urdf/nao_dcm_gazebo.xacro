@@ -1,5 +1,35 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- MACROS FOR DISABLE LINKS -->
+    <xacro:macro name="DisabledLinks" params="side side_small">
+        <plugin name="${side}Finger11" filename="libgazebo_disable_link_plugin.so">
+            <link>${side}Finger11</link>
+        </plugin>
+        <plugin name="${side}Finger12" filename="libgazebo_disable_link_plugin.so">
+            <link>${side}Finger12</link>
+        </plugin>
+        <plugin name="${side}Finger13" filename="libgazebo_disable_link_plugin.so">
+            <link>${side}Finger13</link>
+        </plugin>
+        <plugin name="${side}Finger21" filename="libgazebo_disable_link_plugin.so">
+            <link>${side}Finger21</link>
+        </plugin>
+        <plugin name="${side}Finger22" filename="libgazebo_disable_link_plugin.so">
+            <link>${side}Finger22</link>
+        </plugin>
+        <plugin name="${side}Finger23" filename="libgazebo_disable_link_plugin.so">
+            <link>${side}Finger23</link>
+        </plugin>
+        <plugin name="${side}Thumb1" filename="libgazebo_disable_link_plugin.so">
+            <link>${side}Thumb1</link>
+        </plugin>
+        <plugin name="${side}Thumb2" filename="libgazebo_disable_link_plugin.so">
+            <link>${side}Thumb2</link>
+        </plugin>
+        <plugin name="${side_small}_gripper" filename="libgazebo_disable_link_plugin.so">
+            <link>${side_small}_gripper</link>
+        </plugin>
+    </xacro:macro>
     <!-- MACROS FOR MIMIC JOINTS -->
     <!-- Fingers -->
     <xacro:macro name="FingerMimics" params="side num">
@@ -72,6 +102,9 @@
 
         <xacro:ThumbMimics side="L"/>
         <xacro:ThumbMimics side="R"/>
+
+        <xacro:DisabledLinks side="L" side_small="l"/>
+        <xacro:DisabledLinks side="R" side_small="r"/>
     </gazebo>
     <!-- END OF GAZEBO ROS CONTROL PLUGIN -->
     <!-- GAZEBO MATERIALS -->
