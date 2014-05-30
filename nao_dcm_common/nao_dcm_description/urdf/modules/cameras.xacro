@@ -1,16 +1,103 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<!-- CAMERAS -->
-    <joint name="TopCamera" type="fixed">
+    <joint name="gaze-top-camera" type="fixed">
     	<parent link="gaze"/>
-    	<child link="CameraTop"/>
+    	<child link="TopCamera"/>
     	<origin xyz="0.05871 0 0.06364" rpy="0 0.0209 0"/>
     </joint>
+    <link name="TopCamera"/>
+    <joint name="fixed-top-camera" type="fixed">
+        <parent link="TopCamera"/>
+        <child link="CameraTop"/>
+        <origin xyz="0 0 0" rpy="-${PI_2} 0 -${PI_2}"/>
+    </joint>
     <link name="CameraTop"/>
-    <joint name="BottomCamera" type="fixed">
+    <joint name="gaze-bottom-camera" type="fixed">
     	<parent link="gaze"/>
-    	<child link="CameraBottom"/>
+    	<child link="BottomCamera"/>
     	<origin xyz="0.05071 0 0.01774" rpy="0 0.6929 0"/>
     </joint>
+    <link name="BottomCamera"/>
+    <joint name="fixed-bottom-camera" type="fixed">
+        <parent link="BottomCamera"/>
+        <child link="CameraBottom"/>
+        <origin xyz="0 0 0" rpy="-${PI_2} 0 -${PI_2}"/>
+    </joint>
     <link name="CameraBottom"/>
+
+    <!-- GAZEBO -->
+    <gazebo reference="TopCamera">
+        <sensor type="camera" name="CameraTop">
+            <update_rate>30.0</update_rate>
+            <camera name="head">
+                <horizontal_fov>1.06290551</horizontal_fov>
+                <image>
+                    <width>640</width>
+                    <height>480</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.3</near>
+                    <far>500</far>
+                </clip>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.007</stddev>
+                </noise>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <alwaysOn>true</alwaysOn>
+                <updateRate>0.0</updateRate>
+                <cameraName>nao_dcm/CameraTop</cameraName>
+                <imageTopicName>image_raw</imageTopicName>
+                <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+                <frameName>CameraTop</frameName>
+                <hackBaseline>0.07</hackBaseline>
+                <distortionK1>0.0</distortionK1>
+                <distortionK2>0.0</distortionK2>
+                <distortionK3>0.0</distortionK3>
+                <distortionT1>0.0</distortionT1>
+                <distortionT2>0.0</distortionT2>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <gazebo reference="BottomCamera">
+        <sensor type="camera" name="CameraBottom">
+            <update_rate>30.0</update_rate>
+            <camera name="head">
+                <horizontal_fov>0.834267382</horizontal_fov>
+                <image>
+                    <width>640</width>
+                    <height>480</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.3</near>
+                    <far>500</far>
+                </clip>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.007</stddev>
+                </noise>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <alwaysOn>true</alwaysOn>
+                <updateRate>0.0</updateRate>
+                <cameraName>nao_dcm/CameraBottom</cameraName>
+                <imageTopicName>image_raw</imageTopicName>
+                <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+                <frameName>CameraBottom</frameName>
+                <hackBaseline>0.07</hackBaseline>
+                <distortionK1>0.0</distortionK1>
+                <distortionK2>0.0</distortionK2>
+                <distortionK3>0.0</distortionK3>
+                <distortionT1>0.0</distortionT1>
+                <distortionT2>0.0</distortionT2>
+            </plugin>
+        </sensor>
+    </gazebo>
 </robot>

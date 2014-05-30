@@ -52,6 +52,12 @@
             <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
         </inertial>
     </link>
+    <joint name="fixed-left-camera" type="fixed">
+        <parent link="LeftCamera"/>
+        <child link="CameraLeft"/>
+        <origin xyz="0 0 0" rpy="-${PI_2} 0 -${PI_2}"/>
+    </joint>
+    <link name="CameraLeft"/>
     <joint name="helmet-right-camera" type="fixed">
         <parent link="helmet"/>
         <child link="RightCamera"/>
@@ -65,6 +71,12 @@
             <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9" />
         </inertial>
     </link>
+    <joint name="fixed-right-camera" type="fixed">
+        <parent link="RightCamera"/>
+        <child link="CameraRight"/>
+        <origin xyz="0 0 0" rpy="-${PI_2} 0 -${PI_2}"/>
+    </joint>
+    <link name="CameraRight"/>
     <!-- GAZEBO RELATED PARAMETERS -->
     <!-- DUMMY VALUES - CHANGE TO THE ONES YOUR CAMERAS HAVE -->
     <gazebo reference="LeftCamera">
@@ -93,7 +105,7 @@
                 <cameraName>nao_dcm/CameraLeft</cameraName>
                 <imageTopicName>image_raw</imageTopicName>
                 <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-                <frameName>LeftCamera</frameName>
+                <frameName>CameraLeft</frameName>
                 <hackBaseline>0.07</hackBaseline>
                 <distortionK1>0.0</distortionK1>
                 <distortionK2>0.0</distortionK2>
@@ -130,7 +142,7 @@
                 <cameraName>nao_dcm/CameraRight</cameraName>
                 <imageTopicName>image_raw</imageTopicName>
                 <cameraInfoTopicName>camera_info</cameraInfoTopicName>
-                <frameName>RightCamera</frameName>
+                <frameName>CameraRight</frameName>
                 <hackBaseline>0.07</hackBaseline>
                 <distortionK1>0.0</distortionK1>
                 <distortionK2>0.0</distortionK2>
