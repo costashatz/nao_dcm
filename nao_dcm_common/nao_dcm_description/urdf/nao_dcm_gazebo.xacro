@@ -88,12 +88,12 @@
             <alwaysOn>true</alwaysOn>
         </plugin>
         <!-- Mimic joints through plugin develop by costashatz based on implementation by Goncalo Cabrita -->
-        <plugin name="mimic_hipyawpitch" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+        <!-- <plugin name="mimic_hipyawpitch" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
             <joint>LHipYawPitch</joint>
             <mimicJoint>RHipYawPitch</mimicJoint>
             <multiplier>1.0</multiplier>
             <offset>0.0</offset>
-        </plugin>
+        </plugin> -->
 
         <xacro:FingerMimics side="L" num="1"/>
         <xacro:FingerMimics side="L" num="2"/>
@@ -363,7 +363,7 @@
         <selfCollide>false</selfCollide>
         <turnGravityOff>false</turnGravityOff>
         <fdir1>1 0 0</fdir1>
-        <maxVel>1.0</maxVel>
+        <maxVel>0.1</maxVel>
         <minDepth>0.003</minDepth>
     </gazebo>
     <gazebo reference="RHipYaw">
@@ -408,7 +408,7 @@
         <selfCollide>false</selfCollide>
         <turnGravityOff>false</turnGravityOff>
         <fdir1>1 0 0</fdir1>
-        <maxVel>1.0</maxVel>
+        <maxVel>0.1</maxVel>
         <minDepth>0.003</minDepth>
     </gazebo>
     <!-- END OF GAZEBO MATERIALS -->
