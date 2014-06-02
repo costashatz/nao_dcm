@@ -39,7 +39,7 @@ OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISE
 
   <run_depend>nao_dcm_description</run_depend>
   <run_depend>gazebo_ros</run_depend>
-  <run_depend>gazebo_plugins</run_depend>
+  <run_depend>roboticsgroup_gazebo_plugins</run_depend>
 
 
   <export>

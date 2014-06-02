@@ -23,7 +23,7 @@ nao_dcm requires several packages to be installed in order to work properly:
 * [ROS MoveIt!] - Used for motion planning
 * [ROS Control] - **Version >=0.6.0**
 * [Webots for Nao] - The best? simulator so far [optional]
-* [Gazebo] - Work in progress but with satisfactory results (**Version >= 2.2.2 alongside gazebo-ros-pkgs >= 2.3.4 and [gazebo_plugins]**) [optional]
+* [Gazebo] - Work in progress but with satisfactory results (**Version >= 2.2.2 alongside gazebo-ros-pkgs >= 2.3.4 and [roboticsgroup_gazebo_plugins]**) [optional]
 * [Nao Robot] - A real working Nao is the best "simulator" you'll ever get!! **Version >= V4.0 and flashed OpenNao OS >= 1.14.5**
 
 Basic Usage
@@ -115,6 +115,6 @@ Copyright (c) 2014, **Konstantinos Chatzilygeroudis**
 [nao robot]: http://www.aldebaran.com/en/humanoid-robot/nao-robot
 [nao_meshes]: https://github.com/vrabaud/nao_meshes
 [ros control]: http://wiki.ros.org/ros_control
-[gazebo_plugins]: http://www.github.com/costashatz/gazebo_plugins
+[roboticsgroup_gazebo_plugins]: http://www.github.com/costashatz/roboticsgroup_gazebo_plugins
 [robot.xacro]: https://github.com/costashatz/nao_dcm/blob/master/nao_dcm_common/nao_dcm_description/urdf/modules/robot.xacro
 [gazebo launch]: https://github.com/costashatz/nao_dcm/tree/master/nao_dcm_apps/nao_dcm_gazebo/launch
