@@ -88,12 +88,13 @@
             <alwaysOn>true</alwaysOn>
         </plugin>
         <!-- Mimic joints through plugin develop by costashatz based on implementation by Goncalo Cabrita -->
-        <!-- <plugin name="mimic_hipyawpitch" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+        <plugin name="mimic_hipyawpitch" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
             <joint>LHipYawPitch</joint>
             <mimicJoint>RHipYawPitch</mimicJoint>
             <multiplier>1.0</multiplier>
             <offset>0.0</offset>
-        </plugin> -->
+            <sensitiveness>0.1</sensitiveness>
+        </plugin>
 
         <xacro:FingerMimics side="L" num="1"/>
         <xacro:FingerMimics side="L" num="2"/>
