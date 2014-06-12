@@ -1,52 +1,52 @@
 nao_dcm/gazebo_ros_control/pid_gains:
-  HeadYaw: {p: 1000.0, i: 0.0, d: 0.0}
+  HeadYaw: {p: 500.0, i: 1000.0, d: 0.01}
 
-  HeadPitch: {p: 1000.0, i: 0.0, d: 0.0}
+  HeadPitch: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LShoulderPitch: {p: 5000.0, i: 0.0, d: 0.0}
+  LShoulderPitch: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LElbowYaw: {p: 100.0, i: 0.0, d: 0.0}
+  LElbowYaw: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LElbowRoll: {p: 100.0, i: 0.0, d: 0.0}
+  LElbowRoll: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LShoulderRoll: {p: 5000.0, i: 0.0, d: 0.0}
+  LShoulderRoll: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LWristYaw: {p: 20.0, i: 0.0, d: 0.0}
+  LWristYaw: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LHand: {p: 1.0, i: 0.0, d: 0.0}
+  LHand: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RShoulderPitch: {p: 5000.0, i: 0.0, d: 0.0}
+  RShoulderPitch: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RElbowYaw: {p: 100.0, i: 0.0, d: 0.0}
+  RElbowYaw: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RElbowRoll: {p: 100.0, i: 0.0, d: 0.0}
+  RElbowRoll: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RShoulderRoll: {p: 5000.0, i: 0.0, d: 0.0}
+  RShoulderRoll: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RWristYaw: {p: 20.0, i: 0.0, d: 0.0}
+  RWristYaw: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RHand: {p: 1.0, i: 0.0, d: 0.0}
+  RHand: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LHipYawPitch: {p: 1000.0, i: 0.0, d: 0.0}
+  LHipYawPitch: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LHipRoll: {p: 1000.0, i: 0.0, d: 0.0}
+  LHipRoll: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LHipPitch: {p: 1000.0, i: 0.0, d: 0.0}
+  LHipPitch: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LKneePitch: {p: 1000.0, i: 0.0, d: 0.0}
+  LKneePitch: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LAnklePitch: {p: 1000.0, i: 0.0, d: 0.0}
+  LAnklePitch: {p: 500.0, i: 1000.0, d: 0.01}
 
-  LAnkleRoll: {p: 1000.0, i: 0.0, d: 0.0}
+  LAnkleRoll: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RHipYawPitch: {p: 1000.0, i: 0.0, d: 0.0}
+  RHipYawPitch: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RHipRoll: {p: 1000.0, i: 0.0, d: 0.0}
+  RHipRoll: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RHipPitch: {p: 1000.0, i: 0.0, d: 0.0}
+  RHipPitch: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RKneePitch: {p: 1000.0, i: 0.0, d: 0.0}
+  RKneePitch: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RAnklePitch: {p: 1000.0, i: 0.0, d: 0.0}
+  RAnklePitch: {p: 500.0, i: 1000.0, d: 0.01}
 
-  RAnkleRoll: {p: 1000.0, i: 0.0, d: 0.0}
+  RAnkleRoll: {p: 500.0, i: 1000.0, d: 0.01}

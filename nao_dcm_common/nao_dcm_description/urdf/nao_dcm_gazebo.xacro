@@ -93,7 +93,6 @@
             <mimicJoint>RHipYawPitch</mimicJoint>
             <multiplier>1.0</multiplier>
             <offset>0.0</offset>
-            <sensitiveness>0.1</sensitiveness>
         </plugin>
 
         <xacro:FingerMimics side="L" num="1"/>
