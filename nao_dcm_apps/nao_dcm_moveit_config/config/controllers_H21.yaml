@@ -32,8 +32,6 @@ controller_list:
       - LHipRoll
       - LHipPitch
       - LKneePitch
-      - LAnklePitch
-      - LAnkleRoll
   - name: nao_dcm/RightLeg_controller
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
@@ -42,6 +40,18 @@ controller_list:
       - RHipRoll
       - RHipPitch
       - RKneePitch
+  - name: nao_dcm/LeftFoot_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - LAnklePitch
+      - LAnkleRoll
+  - name: nao_dcm/RightFoot_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
       - RAnklePitch
       - RAnkleRoll
   - name: nao_dcm/Head_controller

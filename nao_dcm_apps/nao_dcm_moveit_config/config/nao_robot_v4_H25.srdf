@@ -29,13 +29,17 @@
         <joint name="LHipRoll" />
         <joint name="LHipPitch" />
         <joint name="LKneePitch" />
-        <joint name="LAnklePitch" />
-        <joint name="LAnkleRoll" />
     </group>
     <group name="RightLeg">
         <joint name="RHipRoll" />
         <joint name="RHipPitch" />
         <joint name="RKneePitch" />
+    </group>
+    <group name="LeftFoot">
+        <joint name="LAnkleRoll" />
+        <joint name="LAnklePitch" />
+    </group>
+    <group name="RightFoot">
         <joint name="RAnklePitch" />
         <joint name="RAnkleRoll" />
     </group>
@@ -96,6 +100,8 @@
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="right_eef" parent_link="RElbowDummy" group="RightHand" parent_group="RightArm" />
     <end_effector name="left_eef" parent_link="LElbowDummy" group="LeftHand" parent_group="LeftArm" />
+    <end_effector name="right_foot_eef" parent_link="RKnee" group="RightFoot" parent_group="RightLeg" />
+    <end_effector name="left_foot_eef" parent_link="LKnee" group="LeftFoot" parent_group="LeftLeg" />
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="virtual_joint" type="floating" parent_frame="odom" child_link="base_link" />
     <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
