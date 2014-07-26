@@ -18,7 +18,7 @@ Requirements
 
 nao_dcm requires several packages to be installed in order to work properly:
 
-* [ROS] - ROS >= **Hydro** (should also work on the forthcoming *Indigo*)
+* [ROS] - ROS **Hydro**
 * [NaoQi C++ SDK] - **Version 1.14.5**
 * [ROS MoveIt!] - Used for motion planning
 * [ROS Control] - **Version >=0.6.0**
