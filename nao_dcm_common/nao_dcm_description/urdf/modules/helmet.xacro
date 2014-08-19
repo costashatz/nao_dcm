@@ -1,5 +1,22 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<!-- XACRO MACROS FOR VISUALS AND COLLISIONS -->
+	<xacro:macro name="visuals_collisions_helmet" params="">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 -0 0"/>
+			<geometry>
+				<mesh filename="package://nao_dcm_description/meshes/helmet.dae"  scale="${scale} ${scale} ${scale}"/>
+			</geometry>
+			<material name="LightGrey"/>
+		</visual>
+		<!-- <collision>
+			<origin xyz="0 0 0" rpy="0 -0 0"/>
+			<geometry>
+				<mesh filename="package://nao_dcm_description/meshes/helmet.dae"  scale="${scale} ${scale} ${scale}"/>
+			</geometry>
+			<material name="LightGrey"/>
+		</collision> -->
+	</xacro:macro>
 	<joint name="head-helmet" type="fixed">
         <parent link="gaze"/>
         <child link="helmet"/>

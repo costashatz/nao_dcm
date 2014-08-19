@@ -10,9 +10,10 @@
 			<material name="LightGrey"/>
 		</visual>
 		<collision>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="-0.02 0 0" rpy="0 0 0"/>
 			<geometry>
-				<mesh filename="package://nao_dcm_description/meshes/odroid_bag.dae"  scale="${scale} ${scale} ${scale}"/>
+				<!-- <mesh filename="package://nao_dcm_description/meshes/odroid_bag.dae"  scale="${scale} ${scale} ${scale}"/> -->
+				<box size="0.01 0.01 0.01"/>
 			</geometry>
 			<material name="LightGrey"/>
 		</collision>
@@ -27,9 +28,10 @@
 			<material name="LightGrey"/>
 		</visual>
 		<collision>
-			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<origin xyz="0 0.01 0" rpy="0 0 0"/>
 			<geometry>
-				<mesh filename="package://nao_dcm_description/meshes/odroid.dae"  scale="${scale} ${scale} ${scale}"/>
+				<!-- <mesh filename="package://nao_dcm_description/meshes/odroid.dae"  scale="${scale} ${scale} ${scale}"/> -->
+				<box size="0.01 0.01 0.01"/>
 			</geometry>
 			<material name="LightGrey"/>
 		</collision>
