@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<launch>
+	<node pkg="hector_mapping" type="hector_mapping" name="nao_slam">
+	</node>
+</launch>

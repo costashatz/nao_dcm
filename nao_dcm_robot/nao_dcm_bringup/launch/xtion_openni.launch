@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<launch>
+  <include file="$(find openni2_launch)/launch/openni2.launch">
+    <arg name="rgb_frame_id"   default="/xtion" />
+    <arg name="depth_frame_id" default="/xtion" />
+    <arg name="depth_registration" value="true" />
+    <arg name="publish_tf" value="false" />
+  </include>
+
+  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="xtion_to_laserscan">
+  	<remap from="image" to="/camera/depth/image"/>
+  	<remap from="camera_info" to="/camera/depth/camera_info"/>
+  	<param name="output_frame_id" value="/helmet-xtion"/>
+  	<param name="scan_height" value="10"/>
+  </node>
+
+  <node name="viso" pkg="viso2_ros" type="mono_odometer" respawn="false" output="screen">
+    <param name="sensor_frame_id" value="/xtion"/>
+    <param name="camera_height" value="0.5"/>
+    <param name="camera_pitch" value="-1.1"/>
+    <!-- <param name="publish_tf" value="true"/> -->
+    <remap from="image" to="/camera/rgb/image_rect_color"/>
+    <remap from="/viso/odometry" to="/nao_dcm/odom"/>
+  </node>
+
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame" value="odom"/>
+    <param name="base_footprint_frame" value="base_link"/>
+    <param name="freq" value="10.0"/>
+    <param name="sensor_timeout" value="2.0"/>
+    <param name="odom_used" value="false"/>
+    <param name="imu_used" value="true"/>
+    <param name="vo_used" value="true"/>
+    <param name="debug" value="false"/>
+    <param name="self_diagnose" value="false"/>
+    <remap from="imu_data" to="nao_dcm/imu_data"/>
+    <remap from="vo" to="nao_dcm/odom"/>
+    <remap from="robot_pose_ekf/odom_combined" to="nao_dcm/odom_combined"/>
+  </node>
+</launch>
