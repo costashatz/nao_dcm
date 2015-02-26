@@ -60,8 +60,3 @@ nao_dcm:
     joints:
       - RAnklePitch
       - RAnkleRoll
-  Head_controller:
-    type: position_controllers/JointTrajectoryController
-    joints:
-      - HeadYaw
-      - HeadPitch
