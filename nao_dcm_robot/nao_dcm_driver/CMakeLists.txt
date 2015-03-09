@@ -23,6 +23,8 @@ find_package(NAOqi QUIET COMPONENTS
     alproxies
     alerror
     alvalue
+    qi
+    qitype
 )
 
 find_package(Boost)

@@ -1,5 +1,5 @@
 /**
-Copyright (c) 2014, Konstantinos Chatzilygeroudis
+Copyright (c) 2014-2015, Konstantinos Chatzilygeroudis
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -443,14 +443,14 @@ void Nao::subscribe()
     imu_pub_ = node_handle_.advertise<sensor_msgs::Imu>(prefix_+"imu_data", topic_queue_);
 
     sonar_left_pub_ = node_handle_.advertise<sensor_msgs::Range>(prefix_+"sonar_left", topic_queue_);
-    sonar_left_.header.frame_id = "SonarLeft";
+    sonar_left_.header.frame_id = "LSonar_frame";
     sonar_left_.radiation_type = sensor_msgs::Range::ULTRASOUND;
     sonar_left_.field_of_view = 1.04719755f;
     sonar_left_.min_range = 0.25;
     sonar_left_.max_range = 2.55;
 
     sonar_right_pub_ = node_handle_.advertise<sensor_msgs::Range>(prefix_+"sonar_right", topic_queue_);
-    sonar_right_.header.frame_id = "SonarRight";
+    sonar_right_.header.frame_id = "RSonar_frame";
     sonar_right_.radiation_type = sensor_msgs::Range::ULTRASOUND;
     sonar_right_.field_of_view = 1.04719755f;
     sonar_right_.min_range = 0.25;
@@ -486,7 +486,7 @@ void Nao::loadParams()
     ros::NodeHandle n_p("~");
     // Load Server Parameters
     n_p.param("Version", version_, string("V4"));
-    n_p.param("BodyType", body_type_, string("H21"));
+    n_p.param("BodyType", body_type_, string("H25"));
 
     n_p.param("TactilesEnabled", tactiles_enabled_, true);
     n_p.param("BumpersEnabled", bumpers_enabled_, true);

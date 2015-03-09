@@ -1,8 +1,0 @@
-moveit_setup_assistant_config:
-  URDF:
-    package: nao_dcm_description
-    relative_path: urdf/nao_dcm_H25.xacro
-  SRDF:
-    relative_path: config/nao_robot_v4_H25.srdf
-  CONFIG:
-    generated_timestamp: 1400500416
