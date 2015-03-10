@@ -60,7 +60,7 @@ License
 BSD
 
 
-Copyright (c) 2014, **Konstantinos Chatzilygeroudis**
+Copyright (c) 2014-2015, **Konstantinos Chatzilygeroudis**
 
 [ros]: http://www.ros.org
 [naoqi c++ sdk]: https://community.aldebaran-robotics.com/doc/2-1/index.html

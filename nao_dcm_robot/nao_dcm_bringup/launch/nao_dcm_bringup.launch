@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Call Nao Robot publisher -->
+  <include file="$(find nao_description)/launch/upload_nao.launch" />
+
+  <!-- Nao Diagnostics -->
+  <node pkg="diagnostic_aggregator" type="aggregator_node" name="nao_dcm_diagnostic_aggregator">
+    <rosparam file="$(find nao_dcm_driver)/config/nao_dcm_analyzers.yaml" command="load"/>
+  </node>
+
+  <!-- Call Nao Robot Trajectory Controller -->
+  <include file="$(find nao_control)/launch/nao_control_trajectory.launch"/>
+
+  <!-- Call Nao Robot Driver -->
+  <node pkg="nao_dcm_driver" type="nao_dcm_driver" name="nao_dcm_driver" respawn="false" output="screen" >
+    <remap from="/joint_states" to="/nao_dcm/joint_states"/>
+    <remap from="/controller_manager" to="/nao_dcm/controller_manager"/>
+    <!-- Load configurations from YAML file to parameter server -->
+    <rosparam file="$(find nao_dcm_bringup)/config/nao_dcm.yaml" command="load"/>
+  </node>
+  
+</launch>
