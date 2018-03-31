@@ -1,6 +1,8 @@
-#nao_dcm
+nao_dcm
+========
  
-##ROS Stack for Aldebaran's Nao Humanoid
+ROS Stack for Aldebaran's Nao Humanoid
+---------------------------------------
  
   - Goal is to **connect to the machine of Nao** and not the API provided by Aldebaran.
   - Ιt makes use only of the **DCM and Memory Proxies**.
@@ -30,14 +32,14 @@ nao_dcm requires several packages to be installed in order to work properly:
 Basic Usage
 --------------
 
-###Bringup nao_dcm driver
+### Bringup nao_dcm driver
 ```sh
 roslaunch nao_dcm_bringup nao_dcm_bringup.launch
 ```
 
 This will connect to Nao Robot and provide basic control over Nao.
 
-###Webots Simulation
+### Webots Simulation
 
 Launch your **Webots for Nao Simulator** and then **follow the instructions above to bringup nao_dcm driver** (remotely). *On some versions of Webots, it is required that you move the head before you get camera feedback.*
 
